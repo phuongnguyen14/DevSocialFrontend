@@ -1,0 +1,271 @@
+.right_home {
+  position: fixed;
+  left: 81.6vw;
+  top: 4.5rem;
+  width: 19vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 91vh;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+
+}
+
+.splitter1 {
+  height: 1.3px;
+  background: var(--divider);
+  width: 17vw;
+  margin: 6px 2px 0 12px;
+}
+
+.contacts_header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0 7px 10px;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.contacts_header_right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: absolute;
+  right: -9px;
+  top: 7px;
+}
+
+.contact_circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.contact_circle:nth-child(1) {
+  margin-right: -1px;
+}
+
+.contact_circle:nth-child(2) {
+  margin-right: 1px;
+}
+
+.contact_circle:nth-child(3) {
+  margin-top: -1px;
+}
+
+.contacts_list {
+  padding: 5px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.requests_img img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact_img img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.contact span {
+  transform: translateY(-5px);
+}
+
+.body_requests {
+  position: relative;
+  gap: 10px;
+
+}
+
+.name_requests {
+  margin: 5px;
+  word-wrap: break-word;
+  /* Tự động xuống dòng nếu văn bản quá dài */
+  overflow-wrap: break-word;
+  /* Tương thích tốt hơn với các trình duyệt hiện đại */
+  white-space: normal;
+  /* Văn bản có thể xuống dòng */
+  line-height: 1.5;
+}
+
+.body_requests span {
+  padding: 5px;
+}
+
+.button_requests {
+  display: flex;
+  gap: 5px;
+  width: 85%;
+  padding-bottom: 10px;
+
+}
+
+.blue_btn_requests {
+  border: none;
+  outline: none;
+  background: #036fc2;
+  padding: 8.5px 12px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  width: 100px;
+  transition: transform 0.5s ease, font-size 0.5s ease;
+  /* Thêm hiệu ứng cho cả chữ */
+}
+
+.blue_btn_requests:hover {
+  background-color: #65b3ef;
+}
+
+.gray_btn_requests {
+  border: none;
+  outline: none;
+  background: #002670;
+  margin-left: 10px;
+  padding: 8.5px 12px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  /* Đổi màu chữ sang trắng */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  width: 100px;
+
+}
+
+.gray_btn_requests:hover {
+  background-color: #4675d2;
+}
+
+
+.right_bottom_notification_group {
+  position: absolute;
+  bottom: -12px;
+  right: -14px;
+  border-radius: 50px;
+  padding: 1px 6px;
+
+
+}
+
+.right_bottom_notification_group img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 1.5px solid #fff;
+}
+
+
+.state_active_user {
+  margin-top: 22px;
+  left: 35px;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  background: #31A24C;
+  border-radius: 80%;
+  border: 1.5px solid #fff;
+}
+
+.right1 {
+
+  background: var(--bg-primary);
+  filter: brightness(1.4);
+  border-radius: 10px;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+
+}
+
+.right1:hover {
+  padding-right: 10px;
+  /* Thêm khoảng cách cách lề phải khi hover */
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  /* Căn giữa icon và chữ theo chiều dọc */
+  gap: 8px;
+  /* Tạo khoảng cách giữa icon và chữ */
+  font-size: 16px;
+  /* Điều chỉnh kích thước chữ nếu cần */
+  font-weight: 600;
+  /* Tùy chỉnh độ đậm của chữ */
+  color: var(--color-primary);
+  /* Màu chữ (có thể thay đổi tùy vào thiết kế) */
+
+}
+
+.text_heading {
+  display: flex;
+  align-items: center;
+  /* Căn giữa icon và chữ theo chiều dọc */
+  gap: 8px;
+  /* Tạo khoảng cách giữa icon và chữ */
+  font-size: 18px;
+  /* Điều chỉnh kích thước chữ nếu cần */
+  font-weight: 600;
+  /* Tùy chỉnh độ đậm của chữ */
+  color: var(--color-primary);
+  /* Màu chữ (có thể thay đổi tùy vào thiết kế) */
+  white-space: normal;
+  /* Cho phép văn bản xuống dòng */
+  word-wrap: break-word;
+  /* Tự động xuống dòng nếu văn bản quá dài */
+  overflow: hidden;
+  /* Cắt bớt phần văn bản thừa */
+  text-overflow: ellipsis;
+  /* Thêm dấu ba chấm khi văn bản vượt quá chiều rộng */
+  width: 150px;
+  /* Đặt chiều rộng tối đa của phần chứa text (có thể điều chỉnh) */
+}

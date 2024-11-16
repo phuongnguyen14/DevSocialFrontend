@@ -1,0 +1,17 @@
+.imgNotification {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        
+        .notificationIcon {
+          font-size: 48px; /* Phóng to icon */
+          margin-bottom: 10px; /* Khoảng cách giữa icon và dòng chữ */
+        }
+        
+        .notificationText {
+          font-size: 16px; /* Kích thước chữ */
+          color: #666; /* Màu chữ */
+        }

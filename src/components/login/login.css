@@ -1,0 +1,33 @@
+.title {
+          font-size: 70px;
+          color: rgb(83, 195, 223);
+          font-family: 'Arial', sans-serif;
+          font-weight: bold;
+          text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.content {
+          font-family: 'Arial', sans-serif;
+          color: rgb(255, 255, 255);
+
+}
+
+.create_btn,
+.login_bt{
+          background-color: rgba(4, 168, 232, 0.8);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 16px;
+          border-radius: 5px;
+}
+
+.create_btn:hover{
+          background-color: rgb(18, 214, 228);
+          transform: scale(1.05);
+}
+.login_bt:hover {
+          background-color: rgb(18, 214, 228);
+          transform: scale(1.05);
+}
