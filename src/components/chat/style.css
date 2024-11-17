@@ -1,25 +1,27 @@
 .chat-window {
   z-index: 9;
   position: fixed;
-  bottom: 0px;
-  right: 80px;
-  width: 338px;
-  height: 455px;
-  background-color: var(--bg-primary);
-  border: 1px solid #ccc;
+  bottom: 10px;
+  right: 18px;
+  width: 310px;
+  height: 310px;
+  background-color: rgba(var(--bg-primary-rgb), 0.8); /* Màu nền với độ trong suốt */
+  border: 1px solid #373636;
   display: flex;
   flex-direction: column;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(80px); /* Hiệu ứng mờ nền phía sau */
 }
 
 .write_chat {}
 
 
 .messages {
+  padding-right: 10px;
+  padding-bottom: 10px;
   display: flex;
   height: 455px;
-  width: 338px;
+  width: 100%;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -31,7 +33,7 @@
   max-width: 200px;
 
   padding: 8px 12px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: var(--color-primary);;
 }
 
@@ -40,11 +42,14 @@
   max-width: 200px;
   background: var(--bg-forth);
   padding: 8px 12px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: var(--color-primary);
 }
 
 .mess_image {
+  max-width: 100%; 
+  width:auto;
+  height: auto;
   margin-top: 5px;
   height: 150px;
   border-radius: 5px;
@@ -82,7 +87,9 @@
   padding: 5px;
   border-bottom: 1px solid var(--bg-third);
   height: 47px;
- 
+  border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ backdrop-filter: blur(80px);
 }
 
 .small_circle_mess {
@@ -103,4 +110,8 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+}
+.comment_input_wrap{
+  margin-left: 10px;
+  border-radius: 5px;
 }

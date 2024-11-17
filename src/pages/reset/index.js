@@ -8,7 +8,7 @@ import LoginInput from "../../components/inputs/loginInput";
 import SearchAccount from "./SearchAccount";
 import SendEmail from "./SendEmail";
 import CodeVerification from "./CodeVerification";
-import LogoDevOutlinedIcon from '@mui/icons-material/LogoDevOutlined';
+import LogoDevOutlinedIcon from "@mui/icons-material/LogoDevOutlined";
 
 import Footer from "../../components/login/Footer";
 import ChangePassword from "./ChangePassword";
@@ -35,10 +35,18 @@ export default function Reset() {
   return (
     <div className="reset">
       <div className="reset_header">
-      <Link to="/login" className="right_reset">
-        <LogoDevOutlinedIcon className="dev_icon"style={{color:'rgba(135, 206, 235, 0.8)' ,fontSize: "50px"}}/>
-
-          </Link>
+        <Link to="/login" className="right_reset">
+          <LogoDevOutlinedIcon
+            className="dev_icon"
+            style={{
+              background: "linear-gradient(to right, #00c6ff, #0072ff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontSize: "50px",
+              display: "inline-block",
+            }}
+          />
+        </Link>
         {user ? (
           <div className="right_reset">
             <Link to="/profile">

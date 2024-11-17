@@ -186,18 +186,21 @@
 }
 /*----Queries----*/
 .dev_icon {
-  color: rgba(135, 206, 235, 0.8);
-  font-size: 32px;
+  font-size: 50px;
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient màu xanh lam */
+  -webkit-background-clip: text; /* Áp dụng gradient cho text */
+  -webkit-text-fill-color: transparent; /* Loại bỏ màu nền gốc */
   margin-right: 8px;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
 .dev_icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Phóng to nhẹ khi hover */
 }
+
 /* styles.css hoặc file CSS tương ứng */
 .login_btn {
-  background-color: rgba(4, 168, 232, 0.8);/* Màu nền xanh lam */
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient màu xanh lam */
   color: white; /* Màu chữ trắng */
   border: none; /* Loại bỏ viền */
   padding: 10px 20px; /* Thêm khoảng đệm */
@@ -205,8 +208,10 @@
   font-size: 16px; /* Kích thước chữ */
   border-radius: 5px; /* Bo tròn góc */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng mượt */
 }
 
 .login_btn:hover {
-  background-color: rgb(3, 104, 245); /* Màu nền khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.5); /* Đổ bóng khi hover */
 }

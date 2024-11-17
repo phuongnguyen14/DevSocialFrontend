@@ -50,7 +50,7 @@ export default function LoginForm({ setVisible, socket }) {
   return (
     <div className="login_wrap">
       <div className="login_1">
-        <h1 className="title">Social Media</h1>
+        <h1 className="title">Social Network</h1>
         <br/>
         <span className="content">
         Join with us now !
@@ -74,7 +74,7 @@ export default function LoginForm({ setVisible, socket }) {
                 <LoginInput
                   type="text"
                   name="email"
-                  placeholder="Email address or phone number"
+                  placeholder="Email address"
                   onChange={handleLoginChange}
                 />
                 <LoginInput
@@ -92,10 +92,10 @@ export default function LoginForm({ setVisible, socket }) {
           </Formik>
           <div >
             <Link to="/reset" className="forgot_password" style={{marginRight:"20px"}}>
-              Forgotten password?
+              Forgot password
             </Link>
             <Link to="/verifi" className="forgot_password">
-              Verifi acccount!
+              Verify
             </Link>
           </div>
 

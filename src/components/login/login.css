@@ -13,21 +13,69 @@
 }
 
 .create_btn,
-.login_bt{
-          background-color: rgba(4, 168, 232, 0.8);
+.login_bt {
+          background: linear-gradient(to right, #00c6ff, #0072ff);
+          /* Gradient xanh biển -> xanh lam */
           color: white;
           border: none;
           padding: 10px 20px;
           cursor: pointer;
           font-size: 16px;
           border-radius: 5px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          /* Hiệu ứng phóng to mượt */
+
 }
 
-.create_btn:hover{
+.create_btn:hover {
           background-color: rgb(18, 214, 228);
           transform: scale(1.05);
+          transform: scale(1.05);
+          /* Phóng to nhẹ */
+          box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+          /* Hiệu ứng đổ bóng mềm */
 }
+
 .login_bt:hover {
           background-color: rgb(18, 214, 228);
           transform: scale(1.05);
+          transform: scale(1.05);
+          /* Phóng to nhẹ */
+
+          box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+          /* Hiệu ứng đổ bóng mềm */
+
+}
+
+.login_wrap {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 80vh;
+          /* Chiều cao toàn màn hình */
+}
+
+.login_1 {
+          text-align: center;
+          /* Căn giữa nội dung */
+          margin-bottom: 20px;
+          /* Khoảng cách với phần form */
+}
+
+.login_1 .title {
+          font-size: 36px;
+          font-weight: bold;
+          color: #1877f2;
+          /* Màu chữ tùy chỉnh */
+}
+
+.login_1 .content {
+          font-size: 16px;
+          color: #606770;
+}
+.create_btn:active,
+.login_bt:active {
+  transform: scale(0.98); /* Co lại nhẹ khi nhấn */
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.2); /* Đổ bóng nhẹ hơn */
 }

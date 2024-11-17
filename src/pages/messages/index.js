@@ -105,7 +105,7 @@ export default function Messages({
                   <Search color="#65676b" />
                   <input
                     type="text"
-                    placeholder="Search Facebook"
+                    placeholder="Search"
                     className="hide_input"
                   />
                 </div>

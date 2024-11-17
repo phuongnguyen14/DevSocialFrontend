@@ -71,7 +71,7 @@ export default function SearchMessMenu({
           )}
           <input
             type="text"
-            placeholder="Search Facebook"
+            placeholder="Search"
             ref={input}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

@@ -11,6 +11,9 @@ import CodeVerification from "./CodeVerification";
 import Footer from "../../components/login/Footer";
 import LogoDevOutlinedIcon from '@mui/icons-material/LogoDevOutlined';
 import {  useParams } from "react-router-dom";
+import "../../gradient/CustomStyles"
+
+
 export default function Verifi(socket) {
   const { user } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
@@ -38,7 +41,8 @@ export default function Verifi(socket) {
       <div className="reset_header">
         {/* <img src="../../../icons/facebook.svg" alt="" /> */}
         <Link to="/login" className="right_reset">
-        <LogoDevOutlinedIcon className="dev_icon"style={{color:'rgba(135, 206, 235, 0.8)' ,fontSize: "50px"}}/>
+        
+        <LogoDevOutlinedIcon className="dev_icon"style={{fontSize: "50px"}}/>
 
           </Link>
         {user ? (

@@ -322,7 +322,7 @@ export default function Chat_screen({
       >
         <div
           className="box_header_user_mess"
-          style={unseen ? { background: custom?.color } : {}}
+         
         >
           <div
             className={unseen ? "hover7" : "hover9"}
@@ -375,6 +375,7 @@ export default function Chat_screen({
               display: "flex",
               justifyContent: "center",
               marginTop: "30px",
+              
             }}
           >
             <div className="contact_chat">
@@ -417,8 +418,7 @@ export default function Chat_screen({
               color: "#65676B",
             }}
           >
-            <p>Facebook </p>
-            <p>You're friends on Facebook</p>
+            <p>You're friends</p>
           </div>
 
           {!loadingMess && custom ? (

@@ -340,8 +340,7 @@ export default function Room_Mess_screen_Large({
               color: "#65676B",
             }}
           >
-            <p>Facebook </p>
-            <p>Your group chat on Facebook</p>
+            <p>Your group chat</p>
           </div>
           {!loadingMess ? (
             <>

@@ -309,8 +309,7 @@ export default function Chat_screen_Large({
               color: "#65676B",
             }}
           >
-            <p>Facebook </p>
-            <p>You're friends on Facebook</p>
+            <p>You're friends</p>
           </div>
 
           {!loadingMess ? (
