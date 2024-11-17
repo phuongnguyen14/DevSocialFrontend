@@ -195,30 +195,37 @@ export default function Chat_screen({
   }
 
   if (stt === 0) {
+    chatWindowStyle = { right: "18px" };
     chatWindowStyleMenu = {
-      bottom: "266px",
-      right: "421px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "18px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   } else if (stt === 1) {
+    chatWindowStyle = { right: "425px" };
     chatWindowStyleMenu = {
-      bottom: "266px",
-      right: "766px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "425px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   } else if (stt === 2) {
+    chatWindowStyle = { right: "770px" };
     chatWindowStyleMenu = {
-      bottom: "266px",
-      right: "1111px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "770px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   }
+  
   return (
     <>
       {chatMenu && (
@@ -418,7 +425,6 @@ export default function Chat_screen({
               color: "#65676B",
             }}
           >
-            <p>You're friends</p>
           </div>
 
           {!loadingMess && custom ? (
@@ -451,7 +457,11 @@ export default function Chat_screen({
         <div className="write_chat">
           <div className="create_comment_wrap" style={{ marginTop: "10px" }}>
             <div className="create_comment">
-              <div className="comment_input_wrap">
+              <div className="comment_input_wrap" style={{
+                marginLeft:"10px",
+                borderRadius:"5px",
+                borderBottomLeftRadius:"15px"
+              }}>
                 {picker && (
                   <div className="comment_emoji_picker">
                     <Picker onEmojiClick={handleEmoji} />

@@ -6,8 +6,10 @@ import ReactsPopup from "./ReactsPopup";
 import { useEffect, useRef, useState } from "react";
 import CreateComment from "./CreateComment";
 import PostMenu from "./PostMenu";
-import { getReactsPost, reactPost } from "../../functions/post";
+import { getReactsPost, reactPost, savePost } from "../../functions/post";
 import { createNotification } from "../../functions/notification";
+import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import Comment from "./Comment";
 import { getComment, getCountCommentInPost } from "../../functions/comment";
 
@@ -25,6 +27,7 @@ export default function Post({
   visibleReactComment,
   setVisiblePhoto,
   page,
+  token,
   setReport,
   setReportGroup,
 }) {
@@ -45,7 +48,14 @@ export default function Post({
   useEffect(() => {
     getPostReacts();
   }, [post?._id]);
-
+  const saveHandler = async () => {
+    savePost(postId, token);
+    if (checkSaved) {
+      setCheckSaved(false);
+    } else {
+      setCheckSaved(true);
+    }
+  };
   const handleComment = () => {
     // Gọi phương thức focus() trên đối tượng DOM của input
     textRef.current.focus();
@@ -148,7 +158,6 @@ export default function Post({
         }
       }
       if (index1 !== -1) {
-       
         setReacts([...reacts, (reacts[index1].count = --reacts[index1].count)]);
         setTotal((prev) => --prev);
       }
@@ -350,8 +359,9 @@ export default function Post({
           <div className="reacts_count_num">{total > 0 && total}</div>
         </div>
         <div className="to_right">
-          <div className="comments_count">{totalComment} comments</div>
-          <div className="share_count">0 share</div>
+          <div className="comments_count">
+            {totalComment} {totalComment === 1 ? "comment" : "comments"}
+          </div>
         </div>
       </div>
       <div className="post_actions">
@@ -413,9 +423,20 @@ export default function Post({
           <i className="comment_post_icon"></i>
           <span>Comment</span>
         </div>
-        <div className="post_action hover1">
-          <i className="share_icon"></i>
-          <span>Share</span>
+        <div className="post_action hover1" onClick={() => saveHandler()}>
+          {checkSaved ? (
+            <>
+              <BookmarkOutlinedIcon
+                style={{ color: "#4267b2", fontSize: 20 }}
+              />
+              <span style={{ color: "#4267b2" }}>Saved</span>
+            </>
+          ) : (
+            <>
+              <BookmarkBorderIcon style={{ fontSize: 20 }} />
+              <span>Save</span>
+            </>
+          )}
         </div>
       </div>
       <div className="comments_wrap">

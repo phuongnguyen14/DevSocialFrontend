@@ -30,7 +30,7 @@ export default function NotificationMenu({
       className="mmenu_notification scrollbar"
       style={{
         top: "51px",
-        right: "-50px",
+        right: "-154px",
         boxShadow: "0 1px 1px #fff", // Thay đổi border thành box-shadow
       }}
     >

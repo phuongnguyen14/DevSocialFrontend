@@ -143,6 +143,7 @@ header {
   font-size: 14px;
   line-height: 19px;
   margin-right: 10px;
+  max-width:200px;
 }
 
 .profile_link img {
@@ -456,12 +457,15 @@ header {
   right: -52px;
   width: 360px;
   border-radius: 10px;
-  background: var(--bg-primary);
   user-select: none;
   padding: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 798px;
+  background-color: rgba(var(--bg-primary-rgb), 0.8); /* Màu nền với độ trong suốt */
+
+  backdrop-filter: blur(80px); /* Hiệu ứng mờ nền phía sau */
+
 }
 
 
@@ -874,4 +878,11 @@ header {
   border-radius: 8px;
   background-color:rgba(71, 130, 202, 0.742) ;
   color: #ffff;
+}
+.dark .sunny-icon {
+  fill: #fff; /* Màu trắng khi ở dark mode */
+}
+
+.sunny-icon {
+  fill: #000; /* Màu đen khi ở light mode */
 }

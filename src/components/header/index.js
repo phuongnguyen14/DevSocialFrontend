@@ -161,7 +161,7 @@ export default function Header({
         
       </div>
       <div className="header_right">
-        <Link
+        {/* <Link
           to="/profile"
           className={`profile_link hover1 ${
             page === "profile" && idUser === user.id ? "active_link" : ""
@@ -169,7 +169,7 @@ export default function Header({
         >
           <img src={user?.picture} alt="" />
           <span>{user?.first_name} {user?.last_name}</span>
-        </Link>
+        </Link> */}
 
         {page !== "messages" && (
           <>
@@ -233,7 +233,15 @@ export default function Header({
             />
           )}
         </div>
-
+        <Link
+          to="/profile"
+          className={`profile_link hover1 ${
+            page === "profile" && idUser === user.id ? "active_link" : ""
+          }`}
+        >
+          <img src={user?.picture} alt="" />
+          <span>{user?.first_name} {user?.last_name}</span>
+        </Link>
         <div
           className={`circle_icon hover1 ${showUserMenu && "active_header"}`}
           ref={usermenu}

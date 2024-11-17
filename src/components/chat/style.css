@@ -6,10 +6,10 @@
   width: 310px;
   height: 310px;
   background-color: rgba(var(--bg-primary-rgb), 0.8); /* Màu nền với độ trong suốt */
-  border: 1px solid #373636;
+  border: 0.5px solid #7e7d7d;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 20px;
   backdrop-filter: blur(80px); /* Hiệu ứng mờ nền phía sau */
 }
 
@@ -85,10 +85,11 @@
   font-size: 20px;
   font-weight: 700;
   padding: 5px;
-  border-bottom: 1px solid var(--bg-third);
+  /* border-bottom: 1px solid var(--bg-third); */
+  border-bottom:1px solid #6e6e6e;
   height: 47px;
-  border-top-left-radius: 10px;
- border-top-right-radius: 10px;
+  border-top-left-radius: 25px;
+ border-top-right-radius: 25px;
  backdrop-filter: blur(80px);
 }
 
@@ -111,7 +112,10 @@
   border-radius: 50%;
   object-fit: cover;
 }
-.comment_input_wrap{
-  margin-left: 10px;
-  border-radius: 5px;
+
+.open_cover_menu {
+  background-color: rgba(var(--bg-primary-rgb), 0.8);
+  backdrop-filter: blur(20px); /* Hiệu ứng mờ nền phía sau */
+  border: 0.5px solid #7e7d7d;
+  border-radius: 15px;
 }

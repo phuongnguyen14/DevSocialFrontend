@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Picker from "emoji-picker-react";
-// import { comment } from "../../functions/post";
 import { comment } from "../../functions/comment";
 import { uploadImages } from "../../functions/uploadImages";
 import dataURItoBlob from "../../helpers/dataURItoBlob";
 import { ClipLoader } from "react-spinners";
 import { createNotification } from "../../functions/notification";
+
 export default function CreateComment({
   user,
   post,
@@ -23,15 +23,18 @@ export default function CreateComment({
   const [error, setError] = useState("");
   const [commentImage, setCommentImage] = useState("");
   const [cursorPosition, setCursorPosition] = useState();
+  const [commentsCount, setCommentsCount] = useState(post.comments?.length || 0); // Lưu số lượng comment hiện tại
+  
   const handleLinkClick = (link) => {
-    // Reload the current page
     window.location.replace(link);
   };
-  // const textRef = useRef(null);
+
   const imgInput = useRef(null);
+  
   useEffect(() => {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
+
   const handleEmoji = (e, { emoji }) => {
     const ref = textRef.current;
     ref.focus();
@@ -41,6 +44,7 @@ export default function CreateComment({
     setText(newText);
     setCursorPosition(start.length + emoji.length);
   };
+
   const handleImage = (e) => {
     let file = e.target.files[0];
     if (
@@ -73,7 +77,7 @@ export default function CreateComment({
           post._id,
           id,
           `/profile/${post.user._id}?post_id=${post._id}&comment_id=${id}`,
-          ` <b>${user.first_name} ${user.last_name}</b> commented on your post.`,
+          `<b>${user.first_name} ${user.last_name}</b> commented on your post.`,
           user.token,
           null
         );
@@ -88,7 +92,7 @@ export default function CreateComment({
           postId: post._id,
           commentId: id,
           link: `/profile/${post.user._id}?post_id=${post._id}&comment_id=${id}`,
-          description: ` <b>${user.first_name} ${user.last_name}</b> commented on your post.`,
+          description: `<b>${user.first_name} ${user.last_name}</b> commented on your post.`,
           id: newNotification.newnotification._id,
           createdAt: newNotification.newnotification.createdAt,
           groupId: "",
@@ -100,7 +104,7 @@ export default function CreateComment({
           post._id,
           id,
           `/group/${post?.group._id}?post_id=${post._id}&comment_id=${id}`,
-          ` <b>${user.first_name} ${user.last_name}</b> commented on your post in group <b>${post?.group.group_name}</b>.`,
+          `<b>${user.first_name} ${user.last_name}</b> commented on your post in group <b>${post?.group.group_name}</b>.`,
           user.token,
           post?.group._id
         );
@@ -115,7 +119,7 @@ export default function CreateComment({
           postId: post._id,
           commentId: id,
           link: `/group/${post?.group._id}?post_id=${post._id}&comment_id=${id}`,
-          description: ` <b>${user.first_name} ${user.last_name}</b> commented on your post in group <b>${post?.group.group_name}</b>.`,
+          description: `<b>${user.first_name} ${user.last_name}</b> commented on your post in group <b>${post?.group.group_name}</b>.`,
           id: newNotification.newnotification._id,
           createdAt: newNotification.newnotification.createdAt,
           groupId: post?.group._id,
@@ -123,53 +127,53 @@ export default function CreateComment({
       }
     }
   };
+
   const handleComment = async (e) => {
     if (e.key === "Enter") {
-      if (commentImage != "") {
-        setLoading(true);
+      setLoading(true);
+
+      let imgCommentUrl = "";
+      if (commentImage !== "") {
         const img = dataURItoBlob(commentImage);
         const path = `${user._id}/post_images/${post._id}`;
         let formData = new FormData();
         formData.append("path", path);
         formData.append("file", img);
         const imgComment = await uploadImages(formData, path, user.token);
-
-        const comments = await comment(
-          post._id,
-          text,
-          imgComment[0].url,
-          user.token
-        );
-        setComments(comments.newComments);
-        setCount((prev) => ++prev);
-        setLoading(false);
-        setText("");
-        setCommentImage("");
-        notification(comments.savedComment._id);
-      } else {
-        setLoading(true);
-        const comments = await comment(post._id, text, "", user.token);
-        setComments(comments.newComments);
-        setCount((prev) => ++prev);
-        setLoading(false);
-        setText("");
-        setCommentImage("");
-        notification(comments.savedComment._id);
+        imgCommentUrl = imgComment[0].url;
       }
+
+      const comments = await comment(post._id, text, imgCommentUrl, user.token);
+      setComments(comments.newComments);
+      setCommentsCount(comments.newComments.length); // Cập nhật số lượng comment
+      setCount((prev) => ++prev);
+      setLoading(false);
+      setText("");
+      setCommentImage("");
+      notification(comments.savedComment._id);
     }
   };
+
   return (
     <div className="create_comment_wrap">
       <div className="create_comment">
         <div
           onClick={() => handleLinkClick(`/profile/${user?._id}`)}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", marginTop: "5px" }}
         >
-          {" "}
           <img src={user?.picture} alt="" />
         </div>
 
-        <div className="comment_input_wrap">
+        <div
+          className="comment_input_wrap"
+          style={{
+            borderRadius: "5px",
+            marginTop: "5px",
+            marginBottom: "5px",
+            marginLeft: "10px",
+            borderBottomRightRadius: commentsCount >= 1 ? "5px" : "15px",
+          }}
+        >
           {picker && (
             <div className="comment_emoji_picker">
               <Picker onEmojiClick={handleEmoji} />

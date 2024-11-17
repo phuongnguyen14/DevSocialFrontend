@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./style.css";
 import { updateRoom } from "../../functions/roommess";
+import CloseIcon from '@mui/icons-material/Close';
 export default function CustomColor({
   setThemes,
   openChatWindowMess,
@@ -10,9 +11,9 @@ export default function CustomColor({
   page,
 }) {
   const themeColors = [
-    "#d21313", // Red
-    "rgb(0, 132, 255)", // Blue
-    "#4b7b30", // Green
+    "#d21313", 
+    "rgb(0, 132, 255)", 
+    "#4b7b30", 
     "#F7D700",
     "purple",
     "orange",
@@ -22,10 +23,10 @@ export default function CustomColor({
     "gray",
     "black",
     "#4D3EC2", 
-    "#008000", // Green
+    "#008000", 
     "#00BEBC", 
-    "#A797FF", // Orange
-    "#FF1493", // Deep Pink
+    "#A797FF", 
+    "#FF1493", 
   ];
 
   // Trạng thái màu chủ đề được chọn
@@ -56,15 +57,7 @@ export default function CustomColor({
       <div className="postBoxReact ">
         <div className="box_header">
           <span>Themes</span>
-          <div
-            className="small_circle hover1"
-            style={{ right: "0", display: "flex", position: "absolute" }}
-            onClick={() => {
-              setThemes(false);
-            }}
-          >
-            <i className="exit_icon"></i>
-          </div>
+          
         </div>
 
         <div

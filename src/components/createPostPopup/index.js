@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./style.css";
+import "./popup.css";
 import Picker from "emoji-picker-react";
 import EmojiPickerBackgrounds from "./EmojiPickerBackgrounds";
 import AddToYourPost from "./AddToYourPost";
@@ -115,9 +115,12 @@ export default function CreatePostPopup({
   };
   return (
     <div className="blur">
-      <div className="postBox" ref={popup}>
+      <div className="postBox" ref={popup} style={{ borderRadius: "20px" }}>
         {error && <PostError error={error} setError={setError} />}
-        <div className="box_header">
+        <div
+          className="box_header"
+          style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
+        >
           <div
             className="small_circle"
             onClick={() => {
@@ -134,7 +137,6 @@ export default function CreatePostPopup({
             <div className="box_profile_name">
               {user.first_name} {user.last_name}
             </div>
-            
           </div>
         </div>
 
@@ -163,14 +165,23 @@ export default function CreatePostPopup({
             />
           </>
         )}
-        <AddToYourPost setShowPrev={setShowPrev}  setBackground={setBackground}/>
+        <AddToYourPost
+          setShowPrev={setShowPrev}
+          setBackground={setBackground}
+        />
         <button
           className="post_submit"
           onClick={() => {
             postSubmit();
           }}
           disabled={loading}
-          style={{ backgroundColor: "#4e8bc8" }}
+          style={{
+            backgroundColor: "#4e8bc8",
+            marginBottom: "10px",
+            marginTop: "10px",
+            borderBottomLeftRadius: "20px",
+            borderBottomRightRadius: "20px",
+          }}
         >
           {loading ? <PulseLoader color="#fff" size={5} /> : "Post"}
         </button>

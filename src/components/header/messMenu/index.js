@@ -38,7 +38,7 @@ export default function MessMenu({
       className="mmenu_notification scrollbar"
       style={{
         top: "51px",
-        right: "-94px",
+        right: "-154px",
         boxShadow: "0 1px 1px #fff", // Thay đổi border thành box-shadow
       }}
       

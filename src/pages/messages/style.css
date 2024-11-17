@@ -31,3 +31,90 @@
 
 
 
+/* Hộp tổng thể */
+.postBoxReact {
+  width: 310px; /* Chiều rộng cố định */
+  height: 310px; /* Chiều cao cố định */
+  background-color: rgba(var(--bg-primary-rgb), 0.8); /* Màu nền với độ trong suốt */
+  border-radius: 10px; /* Bo góc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+  display: flex;
+  flex-direction: column; /* Chia thành các phần trên-dưới */
+  justify-content: space-between; /* Căn đều nội dung */
+  overflow: hidden; /* Ẩn tràn */
+  
+}
+
+
+/* Header */
+.box_header {
+  background-color: var(--bg-primary-rgb); /* Nền mờ */
+  padding: 10px; /* Khoảng cách bên trong */
+  display: flex;
+  align-items: center; /* Căn giữa nội dung theo chiều dọc */
+  justify-content: center; /* Đẩy nội dung sang hai bên */
+  margin-bottom: 0; /* Loại bỏ margin-bottom để không bị cách ra */
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(187, 186, 186, 0.1);
+  border: 1px solid #d1cece;
+  backdrop-filter: blur(5px); /* Hiệu ứng mờ nền phía sau */
+
+}
+
+/* Footer */
+.flex {
+  background-color: var(--bg-primary-rgb); /* Nền mờ */
+  display: flex;
+  justify-content: flex-start; /* Đẩy các nút sang phải */
+  gap: 10px; /* Khoảng cách giữa các nút */
+  padding: 10px;
+  border: 1px solid #9a9797; /* Đường viền giống header */
+  box-shadow: 0 4px 6px rgba(187, 186, 186, 0.1); /* Đổ bóng như header */
+  border-radius: 5px; /* Bo góc */
+  backdrop-filter: blur(50px); /* Hiệu ứng mờ nền phía sau */
+
+}
+
+/* Phần chọn màu */
+.grid_theme_colors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột */
+  gap: 10px;
+  max-height: 180px; /* Giới hạn chiều cao */
+  overflow-y: auto; /* Thêm scrollbar nếu tràn */
+}
+
+.grid_theme_colors::-webkit-scrollbar {
+  width: 6px; /* Độ rộng scrollbar */
+}
+
+.grid_theme_colors::-webkit-scrollbar-thumb {
+  background: #ccc; /* Màu của thanh cuộn */
+  border-radius: 4px;
+}
+
+.grid_theme_colors::-webkit-scrollbar-thumb:hover {
+  background: #999; /* Màu khi hover vào thanh cuộn */
+}
+
+/* Nút trong Footer */
+.gray_btn,
+.blue_btn {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.gray_btn {
+  background: #f0f0f0; /* Nền xám nhạt cho nút Cancel */
+}
+
+.blue_btn {
+  background: #007bff; /* Nền xanh dương cho nút Save */
+  color: white; /* Chữ trắng */
+}
+.exit_bt{
+  padding-bottom: 20px;
+  color: #fff;
+}

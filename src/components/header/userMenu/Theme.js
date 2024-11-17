@@ -1,7 +1,9 @@
 import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
-export default function DisplayAccessibility({ setVisible }) {
+export default function Theme({ setVisible }) {
   const dispatch = useDispatch();
   const { darkTheme } = useSelector((state) => ({ ...state }));
   return (
@@ -15,17 +17,17 @@ export default function DisplayAccessibility({ setVisible }) {
         >
           <i className="arrow_back_icon"></i>
         </div>
-        Display & Accessibility
+        Theme 
       </div>
-      <div className="mmenu_main">
-        <div className="small_circle" style={{ width: "50px" }}>
+      {/* <div className="mmenu_main">
+        <div className="small_circle" >
           <i className="dark_filled_icon"></i>
         </div>
         <div className="mmenu_col">
           <span className="mmenu_span1">Dark Mode</span>
          
         </div>
-      </div>
+      </div> */}
       <label
         htmlFor="darkOff"
         className="hover1"
@@ -34,7 +36,8 @@ export default function DisplayAccessibility({ setVisible }) {
           dispatch({ type: "LIGHT" });
         }}
       >
-        <span>Off</span>
+        <WbSunnyIcon/>
+        <span>Light Mode</span>
         {darkTheme ? (
           <input type="radio" name="dark" id="darkOff" />
         ) : (
@@ -50,30 +53,15 @@ export default function DisplayAccessibility({ setVisible }) {
           dispatch({ type: "DARK" });
         }}
       >
-        <span>On</span>
+        <DarkModeIcon/>
+        <span>Dark Mode</span>
         {darkTheme ? (
           <input type="radio" name="dark" id="darkOn" checked />
         ) : (
           <input type="radio" name="dark" id="darkOn" />
         )}
       </label>
-      <div className="mmenu_main">
-        <div className="small_circle" style={{ width: "50px" }}>
-          <i className="compact_icon"></i>
-        </div>
-        <div className="mmenu_col">
-          <span className="mmenu_span1">Compact mode</span>
-          
-        </div>
-      </div>
-      <label htmlFor="compactOff" className="hover1">
-        <span>Off</span>
-        <input type="radio" name="compact" id="compactOff" />
-      </label>
-      <label htmlFor="compactOn" className="hover1">
-        <span>On</span>
-        <input type="radio" name="compact" id="compactOn" />
-      </label>
+      
       
     </div>
   );

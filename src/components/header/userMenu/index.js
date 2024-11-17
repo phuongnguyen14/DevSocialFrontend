@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import DisplayAccessibility from "./DisplayAccessibility";
+import Theme from "./Theme";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 export default function UserMenu({ user, setOpenChatWindows }) {
@@ -16,7 +16,11 @@ export default function UserMenu({ user, setOpenChatWindows }) {
     navigate("/login");
   };
   return (
-    <div className="mmenu" style={{border:"1px solid rgb(204, 204, 204)"}}>
+    <div className="mmenu" style={{
+      top: "51px",
+      right: "-10px",
+      boxShadow: "0 1px 1px #fff", // Thay đổi border thành box-shadow
+    }}>
       {visible === 0 && (
         <div>
           <Link to="/profile" className="mmenu_header hover3">
@@ -29,9 +33,7 @@ export default function UserMenu({ user, setOpenChatWindows }) {
               <span>See your profile</span>
             </div>
           </Link>
-          <div className="mmenu_splitter"></div>
           
-          <div className="mmenu_splitter"></div>
           
           <div
             className="mmenu_item hover3"
@@ -42,7 +44,7 @@ export default function UserMenu({ user, setOpenChatWindows }) {
             <div className="small_circle">
               <i className="dark_filled_icon"></i>
             </div>
-            <span>Display & Accessibility</span>
+            <span>Theme</span>
             <div className="rArrow">
               <i className="right_icon"></i>
             </div>
@@ -60,7 +62,7 @@ export default function UserMenu({ user, setOpenChatWindows }) {
           </div>
         </div>
       )}
-      {visible === 3 && <DisplayAccessibility setVisible={setVisible} />}
+      {visible === 3 && <Theme setVisible={setVisible} />}
     </div>
   );
 }
