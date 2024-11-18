@@ -3,7 +3,7 @@ import "./style.css";
 import { left } from "../../../data/home";
 import { Link } from "react-router-dom";
 import { ArrowDown1 } from "../../../svg";
-import { useState } from "react";
+import { useState , useMemo } from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import ShortTextIcon from '@mui/icons-material/ShortText';
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -11,9 +11,25 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Shortcut from "./Shortcut";
 
+
+// Hàm để loại bỏ dấu và chuyển sang chữ thường
+function removeVietnameseTones(str) {
+  return str
+    .normalize("NFD") // Phân tách các dấu tiếng Việt
+    .replace(/[\u0300-\u036f]/g, "") // Loại bỏ dấu
+    .toLowerCase(); // Chuyển thành chữ thường
+}
+
 const purpleColor ='rgba(135, 206, 235, 0.8)';
 
 export default function LeftHome({ user }) {
+  const fullNameWithoutAccent = useMemo(() => {
+    if (user?.first_name && user?.last_name) {
+      return `${removeVietnameseTones(user.first_name)}${removeVietnameseTones(user.last_name)}`;
+    }
+    return "";
+  }, [user?.first_name, user?.last_name]);
+  
   return (
     <div className="left_home scrollbar">
       <div className="left_top">
@@ -22,6 +38,8 @@ export default function LeftHome({ user }) {
         <span>
           {user?.first_name} {user.last_name}
         </span>
+        <br/>
+          
       </Link>
 
       {left.slice(0, 8).map((link, i) => (
@@ -64,8 +82,8 @@ export default function LeftHome({ user }) {
       </div>
       </div>
       
-      <div className={`footer `}>
-      @{user?.last_name} 
+      <div className="footer">
+        @{fullNameWithoutAccent} {/* Hiển thị full name đã chuyển thành chữ thường không dấu */}
       </div>
     </div>
   );

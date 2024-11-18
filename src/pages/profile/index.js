@@ -13,6 +13,7 @@ import Friends from "./tabs/Friends";
 import CreatePostPopup from "../../components/createPostPopup";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { GridLoader } from "react-spinners";
 import Posts from "./tabs/Posts";
 import About from "./tabs/About";
 import Videos from "./tabs/Videos";

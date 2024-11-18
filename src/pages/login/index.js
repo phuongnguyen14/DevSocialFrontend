@@ -11,7 +11,7 @@ export default function Login( socket) {
       <div className="login_wrapper">
         <LoginForm setVisible={setVisible }  socket={socket}/>
         {visible && <RegisterForm setVisible={setVisible}  />}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

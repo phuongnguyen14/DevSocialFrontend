@@ -146,7 +146,8 @@ export default function Mess_Screen({ message, user, showChat, socket , setVisib
                     <div
                       className="mess_wrap_active"
                       style={{
-                        marginRight: "8px",
+                        marginRight: "15px",
+                        marginBottom:"10px",
                         width: "fit-content",
                         background: showChat?.color,
                       }}
@@ -211,7 +212,7 @@ export default function Mess_Screen({ message, user, showChat, socket , setVisib
               });
             }}
           >
-            <div className="user_img_mess" style={{ marginLeft: "6px" }}>
+            <div className="user_img_mess" style={{ marginLeft: "10px" }}>
               <img src={showChat?.picture} alt="" />
             </div>
             <div
@@ -262,7 +263,7 @@ export default function Mess_Screen({ message, user, showChat, socket , setVisib
                   <>
                     <div className="mess_img_wrap"  onClick={() => setVisiblePhotoDetail(message.image)}>
                       {" "}
-                      <img src={message.image} alt="" className="mess_image" />
+                      <img src={message.image} alt="" className="mess_image"  />
                     </div>
                   </>
                 )}
@@ -270,7 +271,7 @@ export default function Mess_Screen({ message, user, showChat, socket , setVisib
                   <>
                     <div
                       className="mess_wrap"
-                      style={{ marginLeft: "8px", width: "fit-content" }}
+                      style={{ marginLeft: "15px", width: "fit-content" }}
                     >
                       <div className="comment_text">{message.message}</div>
                     </div>

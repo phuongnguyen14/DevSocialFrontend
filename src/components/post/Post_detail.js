@@ -176,15 +176,16 @@ export default function Post_detail({
   return (
     <div className="blur">
       <div className="post_detail " ref={popup}>
-        <div className="box_header">
+        <div className="box_header" style={{borderTopRightRadius:"15px", borderTopLeftRadius:"15px", height:"60px",}}>
           <span> {post.user.first_name}'s Post</span>
           <div
             className="small_circle"
             onClick={() => {
               setVisiblePost(null);
             }}
+            style={{paddingBottom:"8x"}}
           >
-            <i className="exit_icon"></i>
+            <i className="exit_icon" ></i>
           </div>
         </div>
         <div className="post_content scrollbar">
@@ -357,7 +358,6 @@ export default function Post_detail({
             </div>
             <div className="to_right">
               <div className="comments_count">{totalComment} comments</div>
-              <div className="share_count">0 share</div>
             </div>
           </div>
           <div className="post_actions">

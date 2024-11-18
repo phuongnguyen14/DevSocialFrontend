@@ -50,22 +50,22 @@ export default function PostMenu({
           <MenuItem
             icon="save_icon"
             title="Unsave Post"
-            subtitle="Remove this from your saved items."
+            subtitle="Remove"
           />
         ) : (
           <MenuItem
             icon="save_icon"
             title="Save Post"
-            subtitle="Add this to your saved items."
+            subtitle="Add"
           />
         )}
       </div>
       <div className="line"></div>
-      {test && <MenuItem icon="edit_icon" title="Edit Post" />}
+      {/* {test && <MenuItem icon="edit_icon" title="Edit Post" />} */}
 
       {imagesLength && (
         <div onClick={() => downloadImages()}>
-          <MenuItem icon="download_icon" title="Download" />
+          <MenuItem icon="download_icon" title="Download post image" />
         </div>
       )}
 
@@ -73,8 +73,7 @@ export default function PostMenu({
         <div onClick={() => deleteHandler()}>
           <MenuItem
             icon="trash_icon"
-            title="Move to trash"
-            subtitle="items in your trash are deleted after 30 days"
+            title="Delete post"
           />
         </div>
       )}

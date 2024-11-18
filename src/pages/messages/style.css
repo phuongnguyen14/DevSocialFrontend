@@ -1,5 +1,6 @@
 .messages_screen {
   display: flex;
+  width: 100%;
   height: 684px;
   flex-direction: column;
   overflow-y: scroll;
@@ -11,6 +12,7 @@
 .chat-window_screen {
   background-color: var(--bg-primary);
   display: flex;
+  width: 1531px;
   flex-direction: column;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;

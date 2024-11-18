@@ -882,8 +882,9 @@
     inset 0 0 0 1px var(--shadow-inset);
   width: 650px;
   min-height: 626px;
-  transform: translate(80%, 5%);
+  transform: translate(95%, 5%); /* Dịch sang phải nhiều hơn */
   color: var(--color-primary);
+  border-radius: 15px;
 }
 
 .post_content {
@@ -902,6 +903,7 @@
   font-weight: 700;
   padding: 14px 15px 17px 15px;
   border-bottom: 1px solid var(--bg-third);
+  
 }
 
 .post_detail .small_circle {

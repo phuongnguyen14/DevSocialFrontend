@@ -4,7 +4,7 @@
 }
 
 .login_wrap {
-  height: 78vh;
+  height: 100vh;
   color: var(--color-primary);
 }
 .login_1 {
@@ -173,11 +173,11 @@
 /*-----Register---------*/
 
 /*----Footer------*/
-.login_footer {
+/* .login_footer {
   height: 22vh;
   background: var(--bg-primary);
   padding: 1.5rem;
-}
+} */
 .login_footer_wrap {
   display: flex;
   flex-wrap: wrap;
@@ -265,7 +265,7 @@
   .login_wrap {
     display: flex;
     align-items: center;
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: 0 auto;
   }
   .login_1 {
@@ -283,12 +283,20 @@
   }
   .login_2_wrap {
     width: 400px;
+    background-color: rgba(var(--bg-primary-rgb), 0.8); /* Màu trắng với độ trong suốt 80% */
+    padding: 20px;
+    border-radius: 10px; /* Bo góc nhẹ */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng mềm */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+    backdrop-filter: blur(20px);
   }
   .input_wrap {
     width: 360px !important;
+    
   }
   .login_footer_wrap {
     max-width: 900px;
+    background-color: rgba(var(--bg-primary-rgb), 0.8);
   }
 }
 /*----Media queries--------------*/

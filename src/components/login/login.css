@@ -48,13 +48,16 @@
 }
 
 .login_wrap {
+          background: url('../../../public/icons/peakpx2.jpg') no-repeat center center;
+          background-size: cover; /* Đảm bảo ảnh bao phủ toàn màn hình */
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 80vh;
-          /* Chiều cao toàn màn hình */
-}
+          height: 100vh; /* Toàn màn hình dọc */
+           /* Toàn màn hình ngang */
+        }
+        
 
 .login_1 {
           text-align: center;
@@ -64,11 +67,14 @@
 }
 
 .login_1 .title {
-          font-size: 36px;
+          font-size: 50px;
           font-weight: bold;
-          color: #1877f2;
-          /* Màu chữ tùy chỉnh */
-}
+          background: linear-gradient(to right, #00c6ff, #0072ff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          /* Tạo hiệu ứng gradient cho chữ */
+      }
+      
 
 .login_1 .content {
           font-size: 16px;

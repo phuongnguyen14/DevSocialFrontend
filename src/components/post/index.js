@@ -3,7 +3,7 @@ import "./style.css";
 import Moment from "react-moment";
 import { Dots, Public } from "../../svg";
 import ReactsPopup from "./ReactsPopup";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import CreateComment from "./CreateComment";
 import PostMenu from "./PostMenu";
 import { getReactsPost, reactPost, savePost } from "../../functions/post";
@@ -12,7 +12,13 @@ import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import Comment from "./Comment";
 import { getComment, getCountCommentInPost } from "../../functions/comment";
-
+function removeVietnameseTones(str) {
+  return str
+    .normalize("NFD") // Phân tách các dấu tiếng Việt
+    .replace(/[\u0300-\u036f]/g, "") // Loại bỏ dấu
+    .replace(/\s+/g, "")
+    .toLowerCase(); // Chuyển thành chữ thường
+}
 export default function Post({
   post,
   user,
@@ -60,7 +66,7 @@ export default function Post({
     // Gọi phương thức focus() trên đối tượng DOM của input
     textRef.current.focus();
   };
-
+  
   useEffect(() => {
     getPostComments();
     getCountCommentPost();
@@ -167,6 +173,13 @@ export default function Post({
     setVisiblePost({ post: post, commentId: commentId, page: page });
   };
 
+  const fullNameWithoutAccent = useMemo(() => {
+    if (post.user?.last_name) {
+      return `${removeVietnameseTones(post.user.last_name)}`;
+    }
+    return "";
+  }, [post.user?.last_name]);
+
   return (
     <div
       className={`${postId === post?._id ? "post_active" : "post"}`}
@@ -212,7 +225,8 @@ export default function Post({
               ) : (
                 <>
                   <Link to={`/profile/${post.user._id}`} className="hover6">
-                    {post.user.first_name} {post.user.last_name}
+                    {post.user.first_name} {post.user.last_name} &nbsp;
+                    @{fullNameWithoutAccent}&nbsp;
                   </Link>
                 </>
               )}
@@ -220,7 +234,7 @@ export default function Post({
               <div className="updated_p">
                 {post.type == "profilePicture" &&
                   `updated ${
-                    post.user.gender === "male" ? "his" : "her"
+                    post.user.gender === "male" ? "his" : "her" 
                   } profile picture`}
                 {post.type == "coverPicture" &&
                   `updated ${
@@ -230,6 +244,7 @@ export default function Post({
                   `updated the group cover photo.`}
               </div>
             </div>
+            
             <div className="post_profile_privacy_date">
               {group.includes(post.type) && page === "home" && (
                 <>

@@ -12,9 +12,11 @@
 .photoDetail {
   justify-content: center;
   display: flex;
-  width: 1290px;
+  width: 1495px;
+  height: 100vh;
   background-color: black;
   z-index: 999999;
+  object-fit: contain; /* Giữ tỷ lệ ảnh, thêm khoảng trống nếu cần */
 }
 
 .photoDetailCover {
@@ -22,6 +24,8 @@
   justify-content: center;
   display: flex;
   width: 1290px;
+  height: auto;
+ padding-bottom: 20px;
   background-color: black;
   z-index: 999999;
 }
@@ -33,8 +37,8 @@
 }
 
 .photoDetail img {
-  max-height: 846px;
-  max-width: 1180px;
+  max-height: 1335px;
+  max-width: 1200px;
 }
 
 .photoDetailCover img {

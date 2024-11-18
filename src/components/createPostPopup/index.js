@@ -5,6 +5,7 @@ import EmojiPickerBackgrounds from "./EmojiPickerBackgrounds";
 import AddToYourPost from "./AddToYourPost";
 import ImagePreview from "./ImagePreview";
 import useClickOutside from "../../helpers/clickOutside";
+import MinimizeIcon from '@mui/icons-material/Minimize';
 import { createPost } from "../../functions/post";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useDispatch } from "react-redux";
@@ -125,9 +126,12 @@ export default function CreatePostPopup({
             className="small_circle"
             onClick={() => {
               setVisible(false);
+            
             }}
+            style={{paddingBottom:"5px", }}
           >
-            <i className="exit_icon"></i>
+            {/* <i className="exit_icon"></i> */}
+            <MinimizeIcon sx={{color:"#fff",paddingB8ottom:"10px", }}/>
           </div>
           <span>Create Post</span>
         </div>

@@ -1,13 +1,21 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState,useMemo } from "react";
 import CreatePost from "../../../components/createPost";
 import Post from "../../../components/post";
 import Photos from "../Photos";
 import Friends from "../Friends";
 import Intro from "../../../components/intro";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { HashLoader } from "react-spinners";
+import { PuffLoader } from "react-spinners";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
+
+function removeVietnameseTones(str) {
+  return str
+    .normalize("NFD") // Phân tách các dấu tiếng Việt
+    .replace(/[\u0300-\u036f]/g, "") // Loại bỏ dấu
+    .toLowerCase(); // Chuyển thành chữ thường
+}
+
 export default function Posts({
   profile,
   loading,
@@ -31,6 +39,7 @@ export default function Posts({
   setReportGroup,
   setReport
 }) {
+  
   const [height, setHeight] = useState();
   const [leftHeight, setLeftHeight] = useState();
   const [scrollHeight, setScrollHeight] = useState();
@@ -40,6 +49,12 @@ export default function Posts({
   const check = useMediaQuery({
     query: "(min-width:901px)",
   });
+  const fullNameWithoutAccent = useMemo(() => {
+    if (user?.first_name && user?.last_name) {
+      return `${removeVietnameseTones(user.first_name)}${removeVietnameseTones(user.last_name)}`;
+    }
+    return "";
+  }, [user?.first_name, user?.last_name]);
   useEffect(() => {
     setHeight(profileTop.current.clientHeight + 26);
     setLeftHeight(leftSide.current.clientHeight);
@@ -74,7 +89,7 @@ export default function Posts({
               <div className="profile_card">
                 <div className="profile_card_header">Intro</div>
                 <div className="sekelton_loader">
-                  <HashLoader color="#1876f2" />
+                  <PuffLoader color="#1876f2" />
                 </div>
               </div>
               <div className="profile_card">
@@ -83,7 +98,7 @@ export default function Posts({
                   <div className="profile_header_link">See all photos</div>
                 </div>
                 <div className="sekelton_loader">
-                  <HashLoader color="#1876f2" />
+                  <PuffLoader color="#1876f2" />
                 </div>
               </div>
               <div className="profile_card">
@@ -92,7 +107,7 @@ export default function Posts({
                   <div className="profile_header_link">See all friends</div>
                 </div>
                 <div className="sekelton_loader">
-                  <HashLoader color="#1876f2" />
+                  <PuffLoader color="#1876f2" />
                 </div>
               </div>
             </>
@@ -114,7 +129,7 @@ export default function Posts({
           )}
 
           <div className="relative_fb_copyright">
-            @{user?.first_name} {user?.last_name} 
+          @{fullNameWithoutAccent}
           </div>
         </div>
         <div className="profile_right">
@@ -123,7 +138,7 @@ export default function Posts({
           )}
           {loading ? (
             <div className="sekelton_loader">
-              <HashLoader color="#1876f2" />
+              <PuffLoader color="#1876f2" />
             </div>
           ) : (
             <div className="posts">
