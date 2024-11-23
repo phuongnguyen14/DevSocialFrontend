@@ -40,7 +40,7 @@ export default function ReportMenu({ setReport, report }) {
           groupRef: report.groupId,
           userReportedRef: report.userReportedRef,
           groupReportedRef: report.groupReportedRef,
-          to: "adminFacebook",
+          to: "admin",
           type,
         },
         {

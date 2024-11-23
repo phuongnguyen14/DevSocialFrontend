@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Moment from "react-moment";
 import { setRead } from "../../../functions/notification";
 import WifiTetheringOffOutlinedIcon from "@mui/icons-material/WifiTetheringOffOutlined";
@@ -34,7 +35,9 @@ export default function NotificationMenu({
         boxShadow: "0 1px 1px #fff", // Thay đổi border thành box-shadow
       }}
     >
-      <h2>Notifications</h2>
+      <h2 className="mess_menu_title">
+        <NotificationsActiveIcon/>
+        Notifications</h2>
       <div className="mmenu_splitter"></div>
       {notifications?.length != 0 ? (
         notifications.map((notification, i) => (

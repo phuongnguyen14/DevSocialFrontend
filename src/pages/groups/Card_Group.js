@@ -44,8 +44,11 @@ export default function Card_Group({ group, getGroups, User, getUserData }) {
               {group.group_name}
             </Link>
             <div className="post_profile_privacy_date">
-              <p>{group?.numMembers} members</p>
-            </div>
+  <p>
+    {group?.numMembers} {group?.numMembers === 1 ? "member" : "members"}
+  </p>
+</div>
+
           </div>
         </div>
         <div className="content_bottom">

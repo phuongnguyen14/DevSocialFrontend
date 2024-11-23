@@ -39,7 +39,6 @@ export default function Verifi(socket) {
   return (
     <div className="reset">
       <div className="reset_header">
-        {/* <img src="../../../icons/facebook.svg" alt="" /> */}
         <Link to="/login" className="right_reset">
         
         <LogoDevOutlinedIcon className="dev_icon"style={{fontSize: "50px"}}/>

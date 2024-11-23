@@ -141,7 +141,7 @@ export default function OldCovers({
                                 fontWeight: "400",
                               }}
                             >
-                              {photos.cover_pictures?.length} Uploads
+                              {photos.cover_pictures?.length} Upload
                             </p>
                           </div>
                         </div>

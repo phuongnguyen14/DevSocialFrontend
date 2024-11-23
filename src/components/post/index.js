@@ -34,7 +34,7 @@ export default function Post({
   visibleReactComment,
   setVisiblePhoto,
   page,
-  
+
   setReport,
   setReportGroup,
 }) {
@@ -50,7 +50,7 @@ export default function Post({
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
   const group = ["coverPictureGroup", "group"];
-  
+
   const textRef = useRef(null);
   const postRef = useRef(null);
   useEffect(() => {
@@ -237,7 +237,7 @@ export default function Post({
                     <p
                       style={{
                         fontSize: "12px",
-                         // Làm chữ nghiêng
+                        // Làm chữ nghiêng
                         fontWeight: "200", // Làm chữ mỏng hơn
                       }}
                     >

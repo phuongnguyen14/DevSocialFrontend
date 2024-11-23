@@ -21,11 +21,11 @@ export default function Contact({
                 onchat(friend);
               }}
             >
-              <div className="contact_img">
+              <div className="contact_img" >
                 <img src={friend?.picture} alt="" />
               </div>
               {onlineUsers.some((user) => user.userId === friend._id) && (
-                <div className="state_active_user" />
+                <div className="state_active_user" style={{marginLeft:"12px", padding:"5px"}}/>
               )}
 
               <span>

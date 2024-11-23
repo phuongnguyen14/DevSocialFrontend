@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState, useReducer } from "react";
 import "./style.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Picker from "emoji-picker-react";
 import dataURItoBlob from "../../helpers/dataURItoBlob";
 import { ClipLoader } from "react-spinners";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import Diversity2Icon from '@mui/icons-material/Diversity2';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import Circle from "../../svg/circle";
 import CustomColor from "../../pages/messages/CustomColor";
 import CustomEmoji from "../../pages/messages/CustomEmoji";
@@ -31,6 +35,7 @@ export default function Chat_screen({
   setOpenChatWindowMess,
   openChatWindowMess,
 }) {
+  
   const { user } = useSelector((state) => ({ ...state }));
   const [picker, setPicker] = useState(false);
   const menu1 = useRef(null);
@@ -240,12 +245,9 @@ export default function Chat_screen({
             to={`/profile/${showChat?._id}`}
             onClick={() => setChatMenu(false)}
           >
-            <img
-              src="https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8oi-S_aLzRO.png"
-              style={{ width: "18px", marginRight: "3px" }}
-            />
+            <AssignmentIndIcon sx={{color:"#fff"}}/>
 
-            <p>View profile</p>
+            <p>Profile</p>
           </Link>
           <Link
             className="open_cover_menu_item hover1"
@@ -264,8 +266,8 @@ export default function Chat_screen({
               closeChatWindow(stt);
             }}
           >
-            <i className="mess_icon"></i>
-            <p>Open in Messenger</p>
+            <FullscreenIcon sx={{color:"#fff"}}/>
+            <p>Fullscreen</p>
           </Link>
           <div className="mmenu_splitter"></div>
 
@@ -274,11 +276,11 @@ export default function Chat_screen({
             style={{ cursor: "pointer" }}
             onClick={() => setThemes(true)}
           >
-            <div style={{ marginRight: "10px" }}>
+            <div style={{ marginRight: "10px",marginLeft:"5px" }}>
               <Circle color={custom?.color} />
             </div>
 
-            <p style={{ fontSize: "15px", fontWeight: "500" }}>Change theme</p>
+            <p style={{ fontSize: "15px", fontWeight: "500" }}>Theme</p>
           </div>
           {themes && (
             <CustomColor
@@ -300,9 +302,9 @@ export default function Chat_screen({
             }}
             style={{ cursor: "pointer" }}
           >
-            <div style={{ marginRight: "10px" }}>{custom?.icon}</div>
+            <div style={{ marginRight: "10px",marginLeft:"5px" }}>{custom?.icon}</div>
 
-            <p style={{ fontSize: "15px", fontWeight: "500" }}>Change emoji</p>
+            <p style={{ fontSize: "15px", fontWeight: "500" }}>Emoji</p>
           </div>
           {picker && (
             <CustomEmoji
@@ -348,7 +350,7 @@ export default function Chat_screen({
               {onlineUsers.some((user) => user.userId === showChat?._id) && (
                 <div
                   className="state_active_user_mess"
-                  style={{ left: "35px" }}
+                  style={{ left: "38px",bottom:"5px" }}
                 />
               )}
 
@@ -391,10 +393,11 @@ export default function Chat_screen({
                 <div
                   className="state_active_user_mess"
                   style={{
-                    left: "178px",
+                    left: "160px",
                     bottom: "5px",
                     width: "14px",
                     height: "14px",
+                    
                   }}
                 />
               )}

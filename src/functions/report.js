@@ -10,7 +10,7 @@ export const creatReport = async (
 ) => {
   try {
     const { data } = await axios.put(
-      `${process.env.REACT_APP_BACKEND_URL}/creatReport`,
+      `${process.env.REACT_APP_BACKEND_URL}/createReport`,
       {
         postRef,
         commentRef,

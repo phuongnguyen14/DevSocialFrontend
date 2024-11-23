@@ -3,6 +3,9 @@ import { useCallback, useRef, useState } from "react";
 import Cropper from "react-easy-crop";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../functions/post";
+import DescriptionIcon from "@mui/icons-material/Description";
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { uploadImages } from "../../functions/uploadImages";
 import { updateprofilePicture } from "../../functions/user";
 import getCroppedImg from "../../helpers/getCroppedImg";
@@ -107,23 +110,41 @@ export default function UpdateProfilePicture({
     }
   };
   return (
-    <div className="postBox update_img">
-      <div className="box_header">
+    <div
+      className="postBox update_img"
+      style={{ height: "700px", width: "700px", borderRadius: "15px" }}
+    >
+      <div
+        className="box_header"
+        style={{
+          height: "60px",
+          borderTopLeftRadius: "15px",
+          borderTopRightRadius: "15px",
+        }}
+      >
         <div className="small_circle" onClick={() => setImage("")}>
           <i className="exit_icon"></i>
         </div>
-        <span>Update profile picture</span>
+        <span>Update Avatar</span>
       </div>
       <div className="update_image_desc">
+        <span style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <DescriptionIcon sx={{fontSize:"34px"}}/>
+          Description:
+        </span>
         <textarea
-          placeholder="Description"
+          placeholder="Write something . . ."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="textarea_blue details_input"
         ></textarea>
       </div>
-
+      <span style={{ display: "flex", alignItems: "center", gap: "10px", marginLeft: "15px"}}>
+          <AccountCircleIcon sx={{fontSize:"34px"}}/>
+          Avatar:
+        </span>
       <div className="update_center">
+        
         <div className="crooper">
           <Cropper
             image={image}
@@ -157,24 +178,54 @@ export default function UpdateProfilePicture({
       </div>
       <div className="flex_up">
         <div className="gray_btn" onClick={() => getCroppedImage("show")}>
-          <i className="crop_icon"></i>Crop photo
-        </div>
-        <div className="gray_btn">
-          <i className="temp_icon"></i>Make Temporary
+          <i className="crop_icon"></i>Crop
         </div>
       </div>
-      <div className="flex_p_t">
-        <i className="public_icon"></i>
-        Your profile picture is public
-      </div>
+
       <div className="update_submit_wrap">
-        <div className="blue_link" onClick={() => setImage("")}>
+        <div
+          className="blue_link"
+          onClick={() => setImage("")}
+          style={{
+            color: "white",
+            background: "linear-gradient(45deg, #b0bec5, #90a4ae)", // Gradient xám
+            borderRadius: "5px",
+            padding: "10px 20px",
+            cursor: "pointer",
+            transition: "background 0.3s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.target.style.background =
+              "linear-gradient(45deg, #90a4ae, #b0bec5)")
+          } // Thay đổi gradient khi hover
+          onMouseLeave={(e) =>
+            (e.target.style.background =
+              "linear-gradient(45deg, #b0bec5, #90a4ae)")
+          } // Quay lại gradient ban đầu khi không hover
+        >
           Cancel
         </div>
         <button
           className="blue_btn"
           disabled={loading}
           onClick={() => updateProfielPicture()}
+          style={{
+            background: "linear-gradient(45deg, #64b5f6, #42a5f5)", // Gradient xanh
+            border: "none",
+            borderRadius: "5px",
+            color: "white",
+            padding: "10px 20px",
+            cursor: "pointer",
+            transition: "background 0.3s ease, transform 0.3s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.target.style.background =
+              "linear-gradient(45deg, #42a5f5, #64b5f6)")
+          } // Thay đổi gradient khi hover
+          onMouseLeave={(e) =>
+            (e.target.style.background =
+              "linear-gradient(45deg, #64b5f6, #42a5f5)")
+          } // Quay lại gradient ban đầu khi không hover
         >
           {loading ? <PulseLoader color="#fff" size={5} /> : "Save"}
         </button>

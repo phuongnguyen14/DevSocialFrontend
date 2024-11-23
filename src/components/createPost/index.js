@@ -25,7 +25,7 @@ export default function CreatePost({ user, setVisible, profile, page }) {
       <div className="createPost_body">
         <div className="createPost_icon hover1">
           <VideoStableOutlined style={iconStyle} />
-          Video
+          Stream
         </div>
         <div className="createPost_icon hover1" onClick={() => setVisible(true)}>
           <PhotoLibraryOutlined style={iconStyle} />

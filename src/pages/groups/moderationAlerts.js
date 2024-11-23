@@ -546,7 +546,7 @@ export default function ModerationAlerts({
                     }`}
                     onClick={() => setTab("Browse")}
                   >
-                    Browse
+                    Home
                   </div>
                   <div
                     className={`${

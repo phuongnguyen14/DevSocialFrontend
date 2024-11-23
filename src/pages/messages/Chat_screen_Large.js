@@ -269,13 +269,13 @@ export default function Chat_screen_Large({
                   style={
                     detail
                       ? {
-                          left: "490px",
+                          left: "670px",
                           bottom: "5px",
                           width: "14px",
                           height: "14px",
                         }
                       : {
-                          left: "670px",
+                          left: "775px",
                           bottom: "5px",
                           width: "14px",
                           height: "14px",

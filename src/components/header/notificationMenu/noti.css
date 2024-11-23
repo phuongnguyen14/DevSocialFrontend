@@ -1,17 +1,40 @@
 .imgNotification {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-        }
-        
-        .notificationIcon {
-          font-size: 48px; /* Phóng to icon */
-          margin-bottom: 10px; /* Khoảng cách giữa icon và dòng chữ */
-        }
-        
-        .notificationText {
-          font-size: 16px; /* Kích thước chữ */
-          color: #666; /* Màu chữ */
-        }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.notificationIcon {
+  font-size: 48px;
+  /* Phóng to icon */
+  margin-bottom: 10px;
+  /* Khoảng cách giữa icon và dòng chữ */
+}
+
+.notificationText {
+  font-size: 16px;
+  /* Kích thước chữ */
+  color: #666;
+  /* Màu chữ */
+}
+
+.mess_menu_title {
+  background: var(--bg-primary);
+  filter: brightness(1.2);
+  border-radius: 10px;
+  cursor: pointer;
+  height: 5vh;
+  padding-left: 17px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 8px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+
+}

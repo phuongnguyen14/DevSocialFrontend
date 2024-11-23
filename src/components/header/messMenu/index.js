@@ -4,6 +4,7 @@ import Moment from "react-moment";
 import { setRead } from "../../../functions/notification";
 import { useSelector } from "react-redux";
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import Diversity2Icon from '@mui/icons-material/Diversity2';
 import { Return, Search } from "../../../svg";
 import { search } from "../../../functions/user";
 import SearchMessMenu from "./SearchMessMenu";
@@ -129,16 +130,14 @@ export default function MessMenu({
                           left: "0px",
                         }}
                       >
-                        <img
-                          style={{
+                        
+                        <Diversity2Icon style={{
                             width: "37px",
                             height: "37px",
                             backgroundColor: "#C8C9D4",
                             border: "2.5px solid #fff",
-                          }}
-                          src="https://scontent.xx.fbcdn.net/v/t1.15752-9/311070626_1205014643680530_1668259112361737223_n.png?stp=dst-png_p206x206&_nc_cat=1&ccb=1-7&_nc_sid=61f064&_nc_ohc=OOUSxmZvpX4AX9Ec52l&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSfANxf_j6Qxp6IFN6vPDk365_uJnnsLAWTOqrpxQrwCA&oe=65ADD407"
-                          alt=""
-                        />
+                            borderRadius:"50%"
+                          }}/>
                       </div>
                     </div>
 

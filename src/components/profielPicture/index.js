@@ -44,11 +44,11 @@ export default function ProfilePicture({ setShow, pRef, photos }) {
         accept="image/jpeg,image/png,image/webp,image/gif"
       />
       <div className="postBox pictureBox" ref={popup}>
-        <div className="box_header">
+        <div className="box_header" style={{height:"60px", borderTopLeftRadius:"15px", borderTopRightRadius:"15px"}}>
           <div className="small_circle" onClick={() => setShow(false)}>
             <i className="exit_icon"></i>
           </div>
-          <span>Update profile picture</span>
+          <span>Update Avatar</span>
         </div>
         <div className="update_picture_wrap">
           <div className="update_picture_buttons">
@@ -69,8 +69,8 @@ export default function ProfilePicture({ setShow, pRef, photos }) {
             </button>
           </div>
         )}
-        <div className="old_pictures_wrap scrollbar">
-          <h4>Uploads</h4>
+        {/* <div className="old_pictures_wrap scrollbar">
+          <h4>Upload</h4>
           <div className="old_pictures">
             {photos.post_images?.length > 0 &&
               photos.post_images.map((photo) => (
@@ -124,7 +124,7 @@ export default function ProfilePicture({ setShow, pRef, photos }) {
                 />
               ))}
           </div>
-        </div>
+        </div> */}
       </div>
       {image && (
         <UpdateProfilePicture

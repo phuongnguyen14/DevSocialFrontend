@@ -56,10 +56,8 @@ export default function Saved({
       <div className="friends">
         <div className="friends_left">
           <div className="friends_left_header">
-            <h2>Saved</h2>
-            <div className="small_circle">
-              <i className="settings_filled_icon"></i>
-            </div>
+            <h2 className="group_left_title">Saved</h2>
+           
           </div>
           <div className="friends_left_wrap" style={{ marginTop: "10px" }}>
             {" "}
@@ -91,7 +89,7 @@ export default function Saved({
                   }}
                 />
               </div>
-              <span>Saved posts</span>
+              <span>Saved post</span>
             </div>
           </div>
           <div className="mmenu_splitter" style={{ marginTop: "8px" }}></div>

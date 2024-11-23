@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams,useLocation  } from "react-router-dom";
 import { ArrowDown1 } from "../../svg";
 import Header from "../../components/header";
 import { HashLoader } from "react-spinners";
@@ -56,6 +56,8 @@ export default function Messages({
   const [custom, setCustom] = useState(false);
   const [mediaDetail, setMediaDetail] = useState(null);
   const [themes, setThemes] = useState(false);
+  const location = useLocation(); // Lấy thông tin pathname
+
   useEffect(() => {
     setMediaDetail(null);
   }, [openChatWindowMess]);
@@ -68,6 +70,12 @@ export default function Messages({
   admin = openChatWindowMess?.groupRef?.members.some(
     (member) => member.user.toString() === user.id && member.type === "admin"
   );
+  useEffect(() => {
+    // Nếu đang ở trang "/messages", đóng tất cả các cửa sổ chat
+    if (location.pathname === "/messages") {
+      setOpenChatWindowMess(null);
+    }
+  }, [location.pathname, setOpenChatWindowMess]); 
   return (
     <>
       <Header

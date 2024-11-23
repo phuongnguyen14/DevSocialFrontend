@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Cropper from "react-easy-crop";
 import useClickOutside from "../../helpers/clickOutside";
 import getCroppedImg from "../../helpers/getCroppedImg";
+import UploadIcon from '@mui/icons-material/Upload';
 import { uploadImages } from "../../functions/uploadImages";
 import { useSelector } from "react-redux";
 import { updateCover } from "../../functions/user";
@@ -188,18 +189,18 @@ export default function Cover({ cover, visitor, photos, setVisiblePhoto }) {
           </div>
           {showCoverMneu && (
             <div className="open_cover_menu" ref={menuRef}>
-              <div
+              {/* <div
                 className="open_cover_menu_item hover1"
                 onClick={() => setShow(true)}
               >
                 <i className="photo_icon"></i>
                 Select Photo
-              </div>
+              </div> */}
               <div
                 className="open_cover_menu_item hover1"
                 onClick={() => refInput.current.click()}
               >
-                <i className="upload_icon"></i>
+                <UploadIcon sx={{color:"#ffffff"}}></UploadIcon>
                 Upload Photo
               </div>
             </div>

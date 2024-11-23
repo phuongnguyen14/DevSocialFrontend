@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import dataURItoBlob from "../../helpers/dataURItoBlob";
 import { ClipLoader } from "react-spinners";
 import Exit from "../../svg/exit";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import Diversity2Icon from '@mui/icons-material/Diversity2';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import {
   getMessagesRoom,
   sendMessageRoom,
@@ -206,25 +209,31 @@ export default function Room_Mess_screen({
     chatWindowStyle = { right: "770px" };
   }
   if (stt === 0) {
+    chatWindowStyle = { right: "18px" };
     chatWindowStyleMenu = {
-      bottom: admin ? "220px" : "266px",
-      right: "421px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "18px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   } else if (stt === 1) {
+    chatWindowStyle = { right: "350px" };
     chatWindowStyleMenu = {
-      bottom: admin ? "220px" : "266px",
-      right: "766px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "350px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   } else if (stt === 2) {
+    chatWindowStyle = { right: "680px" };
     chatWindowStyleMenu = {
-      bottom: admin ? "220px" : "266px",
-      right: "1111px",
+      bottom: "calc(266px + 50px)", // Cách box chat 1px
+      right: "680px",
+      width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
@@ -243,9 +252,9 @@ export default function Room_Mess_screen({
             to={`/group/${showChatRoom?.groupRef?._id}`}
             onClick={() => setChatMenu(false)}
           >
-            <i className="group_mess"></i>
-
-            <p>View group</p>
+            
+            <Diversity2Icon sx={{color:"#fff"}}/>
+            <p>Group</p>
           </Link>
           <Link
             className="open_cover_menu_item hover1"
@@ -264,8 +273,8 @@ export default function Room_Mess_screen({
               closeChatWindow(stt);
             }}
           >
-            <i className="mess_icon"></i>
-            <p>Open in Messenger</p>
+           <FullscreenIcon sx={{color:"#fff"}}/>
+            <p>Fullscreen</p>
           </Link>
           <div className="mmenu_splitter"></div>
 
@@ -274,11 +283,11 @@ export default function Room_Mess_screen({
             style={{ cursor: "pointer" }}
             onClick={() => setThemes(true)}
           >
-            <div style={{ marginRight: "10px" }}>
+            <div style={{ marginRight: "10px", marginLeft:"5px" }}>
               <Circle color={showChatRoom?.color} />
             </div>
 
-            <p style={{ fontSize: "15px", fontWeight: "500" }}>Change theme</p>
+            <p style={{ fontSize: "15px", fontWeight: "500" }}>Theme</p>
           </div>
           {themes && (
             <CustomColor
@@ -301,9 +310,9 @@ export default function Room_Mess_screen({
             }}
             style={{ cursor: "pointer" }}
           >
-            <div style={{ marginRight: "10px" }}>{showChatRoom?.icon}</div>
+            <div style={{ marginRight: "10px",marginLeft:"5px" }}>{showChatRoom?.icon}</div>
 
-            <p style={{ fontSize: "15px", fontWeight: "500" }}>Change emoji</p>
+            <p style={{ fontSize: "15px", fontWeight: "500" }}>Emoji</p>
           </div>
           {picker && (
             <CustomEmoji
@@ -445,7 +454,7 @@ export default function Room_Mess_screen({
                   <div
                     className="state_active_user_mess"
                     style={{
-                      left: "178px",
+                      left: "160px",
                       bottom: "5px",
                       width: "14px",
                       height: "14px",
@@ -481,8 +490,8 @@ export default function Room_Mess_screen({
               color: "#65676B",
             }}
           >
-            <p>Facebook </p>
-            <p>Your group chat on Facebook</p>
+            
+            <p>Your group chat </p>
           </div>
           {!loadingMess ? (
             <>
@@ -521,7 +530,6 @@ export default function Room_Mess_screen({
                   marginBottom: "0",
                   borderRadius: "5px",
                   marginLeft: "10px",
-                  marginRight: "10px",
                   height: "35px",
                   fontSize: "30px",
                   paddingTop: "5px",

@@ -1,7 +1,8 @@
 .pictureBox {
-  width: 700px !important;
+  width: 500px !important;
 
-  height: 700px;
+  height: 100px;
+  border-radius: 25pxc;
 }
 .update_picture_wrap {
   padding: 10px 15px;
@@ -15,7 +16,18 @@
 }
 .update_picture_buttons .light_blue_btn {
   color: var(--blue-color);
+  background-image: linear-gradient(45deg, #64b5f6, #42a5f5); /* Gradient xanh */
+  border: none; /* Nếu cần thiết, loại bỏ border */
+  padding: 10px 20px; /* Điều chỉnh padding nếu cần */
+  border-radius: 5px; /* Tùy chỉnh bo góc */
+  transition: background 0.3s ease; /* Thêm hiệu ứng chuyển đổi khi hover */
 }
+
+.update_picture_buttons .light_blue_btn:hover {
+  background-image: linear-gradient(45deg, #42a5f5, #64b5f6); /* Thay đổi gradient khi hover */
+  transform: scale(1.05); /* Thêm hiệu ứng phóng to khi hover */
+}
+
 .update_img {
   width: 700px !important;
   height: 800px;
@@ -27,7 +39,7 @@
   width: 100%;
   height: 85px;
   resize: none;
-  border-radius: 7px;
+  border-radius: 25px;
   outline-offset: 5px;
   border-color: var(--bg-third);
   padding: 1.1rem;
@@ -44,7 +56,7 @@
 }
 .update_center {
   position: relative;
-  height: 400px;
+  height: 350px;
   width: 100%;
   display: flex;
   align-items: center;
