@@ -375,17 +375,18 @@ export default function Room_Mess_screen({
                   <div key={member.user} className="state_active_user_mess" />
                 ) : null;
               })}
-              <img
-                src="../../../../images/chat.png"
-                alt=""
-              />
+              <img src="../../../../images/chat.png" alt="" />
             </div>
 
             <div
               className="contact"
               style={{ display: "flow", flexDirection: "column" }}
             >
-              <span style={unseen ? { color: "#fff" } : { color: "var(--color-primary)" }}>
+              <span
+                style={
+                  unseen ? { color: "#fff" } : { color: "var(--color-primary)" }
+                }
+              >
                 {showChatRoom?.room_name}
               </span>
               <p
@@ -453,10 +454,7 @@ export default function Room_Mess_screen({
                 ) : null;
               })}
 
-              <img
-              src="../../../../images/chat.png"
-                alt=""
-              />
+              <img src="../../../../images/chat.png" alt="" />
             </div>
           </div>
           <div
@@ -467,7 +465,7 @@ export default function Room_Mess_screen({
               marginBottom: "10px",
               fontSize: "14px",
               fontWeight: "500",
-              color: "var(--color-primary)"
+              color: "var(--color-primary)",
             }}
           >
             {showChatRoom?.room_name}
@@ -517,7 +515,20 @@ export default function Room_Mess_screen({
         <div className="write_chat">
           <div className="create_comment_wrap" style={{ marginTop: "10px" }}>
             <div className="create_comment">
-              <div className="comment_input_wrap">
+              <div
+                className="comment_input_wrap"
+                style={{
+                  marginBottom: "0",
+                  borderRadius: "5px",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                  height: "35px",
+                  fontSize: "30px",
+                  paddingTop: "5px",
+                  paddingBottom: "5px",
+                  borderBottomLeftRadius:"15px"
+                }}
+              >
                 {picker && (
                   <div className="comment_emoji_picker">
                     <Picker onEmojiClick={handleEmoji} />

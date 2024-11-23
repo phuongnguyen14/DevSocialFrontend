@@ -273,12 +273,12 @@ export default function Post_detail({
                 </div>
               </div>
             </div>
-            <div
+            {/* <div
               className="post_header_right hover1"
               onClick={() => setShowMenu((prev) => !prev)}
             >
               <Dots color="#828387" />
-            </div>
+            </div> */}
           </div>
           {post.background ? (
             <div

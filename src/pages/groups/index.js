@@ -12,6 +12,10 @@ import FeedOutlinedIcon from "@mui/icons-material/FeedOutlined";
 import DynamicFeedOutlinedIcon from "@mui/icons-material/DynamicFeedOutlined";
 import ControlPointDuplicateOutlinedIcon from "@mui/icons-material/ControlPointDuplicateOutlined";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import GroupsIcon from "@mui/icons-material/Groups";
 import PageviewOutlinedIcon from "@mui/icons-material/PageviewOutlined";
@@ -83,7 +87,7 @@ export default function Groups({
           style={{ overflowY: "scroll", overflowX: "hidden" }}
         >
           <div className="friends_left_header">
-            <h2>Groups</h2>
+            <h2 className="group_left_title">Group</h2>
           </div>
           <div className="friends_left_wrap">
             <Link
@@ -92,14 +96,16 @@ export default function Groups({
                 type === undefined ? "active_friends" : ""
               }`}
             >
-              <div className="small_circle">
-                {type === undefined ? (
-                  <DynamicFeedIcon style={{ color: "white" }} />
-                ) : (
-                  <DynamicFeedOutlinedIcon />
-                )}
+              <div className="group_left_tab">
+                <div className="small_circle">
+                  {type === undefined ? (
+                    <DynamicFeedIcon style={{ color: "white" }} />
+                  ) : (
+                    <DynamicFeedOutlinedIcon />
+                  )}
+                </div>
+                <span>Group's feed</span>
               </div>
-              <span>Feeds</span>
             </Link>
 
             <Link
@@ -108,14 +114,16 @@ export default function Groups({
                 type === "discover" ? "active_friends" : ""
               }`}
             >
-              <div className="small_circle">
-                {type === "discover" ? (
-                  <PageviewIcon style={{ color: "white" }} />
-                ) : (
-                  <PageviewOutlinedIcon />
-                )}
+              <div className="group_left_tab">
+                <div className="small_circle">
+                  {type === "discover" ? (
+                    <PageviewIcon style={{ color: "white" }} />
+                  ) : (
+                    <PageviewOutlinedIcon />
+                  )}
+                </div>
+                <span>All group</span>
               </div>
-              <span>All group</span>
             </Link>
 
             <Link
@@ -124,14 +132,16 @@ export default function Groups({
                 type === "yourgroups" ? "active_friends" : ""
               }`}
             >
-              <div className="small_circle">
-                {type === "yourgroups" ? (
-                  <GroupsIcon style={{ color: "white" }} />
-                ) : (
-                  <Groups2Outlined />
-                )}
+              <div className="group_left_tab">
+                <div className="small_circle">
+                  {type === "yourgroups" ? (
+                    <GroupsIcon style={{ color: "white" }} />
+                  ) : (
+                    <Groups2Outlined />
+                  )}
+                </div>
+                <span>Your group</span>
               </div>
-              <span>Your groups</span>
             </Link>
 
             <div
@@ -166,122 +176,158 @@ export default function Groups({
               <p style={{ margin: 0 }}>Create group</p>
             </div>
 
-            <div className="mmenu_splitter"></div>
-            <div
-              className="mmenu_item"
-              style={{ cursor: "auto", fontSize: "17px" }}
-            >
-              <span>Groups you manage</span>
-            </div>
-            {groupsLoading ? (
-              <div className="sekelton_loader">
-                <PuffLoader color="#1876f2" />
+            <div className="group_tab_box">
+              <div
+                className="mmenu_item"
+                style={{ cursor: "auto", fontSize: "17px" }}
+              >
+                <span
+                  className="group_tab_title"
+                  style={{
+                    display: "inline-flex", // Đặt các phần tử trong cùng một dòng
+                    alignItems: "center", // Căn giữa icon và text theo chiều dọc
+                    verticalAlign: "middle",
+                  }}
+                >
+                  <EditNoteIcon
+                    style={{ fontSize: "30px", marginRight: "10px" }}
+                  />
+                  Manage
+                </span>
               </div>
-            ) : (
-              <>
-                {dataGroups.adminGroups &&
-                  dataGroups.adminGroups.map((group) => (
-                    <>
-                      <Link
-                        to={`/group/${group?._id}`}
-                        className="req_card_pagegroup hover3"
-                        style={{ width: "99%", borderRadius: "10px" }}
-                      >
-                        <div className="group_content_pagegroup">
-                          <div className="content_head_pagegroup">
-                            <div>
-                              <img src={group?.cover} alt="" />
-                            </div>
-                            <div>
-                              <div className="req_name">
-                                {group?.group_name}
+              <div className="splitter" style={{fontSize:"5px",marginBottom:"10px", marginTop:"0px", marginLeft:"-5px", marginRight:"5px"}}>
+                
+              </div>
+              {groupsLoading ? (
+                <div className="sekelton_loader">
+                  <PuffLoader color="#1876f2" />
+                </div>
+              ) : (
+                <>
+                  {dataGroups.adminGroups &&
+                    dataGroups.adminGroups.map((group) => (
+                      <>
+                        <Link
+                          to={`/group/${group?._id}`}
+                          className="req_card_pagegroup hover3"
+                          style={{ width: "97%", borderRadius: "10px" }}
+                        >
+                          <div className="group_content_pagegroup">
+                            <div className="content_head_pagegroup">
+                              <div>
+                                <img src={group?.cover} alt="" />
                               </div>
-                              <div
-                                className="post_profile_privacy_date"
-                                style={{ gap: "5px" }}
-                              >
-                                {group.public ? (
-                                  <>
-                                    {" "}
-                                    <Public color="#828387" />{" "}
-                                    <p>Public group</p> <p>.</p>
-                                  </>
-                                ) : (
-                                  <>
-                                    {" "}
-                                    <i className="private_icon"></i>
-                                    <p>Private group</p>
-                                    <p>.</p>
-                                  </>
-                                )}
-                                <p>{group?.numMembers}</p> <p> members</p>
+                              <div>
+                                <div className="req_name">
+                                  {group?.group_name}
+                                </div>
+                                <div
+                                  className="post_profile_privacy_date"
+                                  style={{ gap: "5px" }}
+                                >
+                                  {group.public ? (
+                                    <>
+                                      {" "}
+                                      <p>Public group</p> <p>.</p>
+                                    </>
+                                  ) : (
+                                    <>
+                                      {" "}
+                                      <p>Private group</p>
+                                      <p>.</p>
+                                    </>
+                                  )}
+                                  <p>
+                                    {group?.numMembers}{" "}
+                                    {group?.numMembers === 1
+                                      ? "member"
+                                      : "members"}
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </>
-                  ))}
-              </>
-            )}
-            <div className="mmenu_splitter"></div>
-            <div
-              className="mmenu_item"
-              style={{ cursor: "auto", fontSize: "17px" }}
-            >
-              <span>Groups you've joined</span>
+                        </Link>
+                      </>
+                    ))}
+                </>
+              )}
             </div>
-            {groupsLoading ? (
-              <div className="sekelton_loader">
-                <PuffLoader color="#1876f2" />
+            <div className="group_tab_box">
+              <div
+                className="mmenu_item"
+                style={{ cursor: "auto", fontSize: "17px" }}
+              >
+                <span
+                  className="group_tab_title"
+                  style={{
+                    display: "inline-flex", // Đặt các phần tử trong cùng một dòng
+                    alignItems: "center", // Căn giữa icon và text theo chiều dọc
+                    verticalAlign: "middle",
+                  }}
+                >
+                  <PlaylistAddCheckIcon
+                    style={{ fontSize: "30px", marginRight: "10px" }}
+                  />
+                  Joined Group
+                </span>
               </div>
-            ) : (
-              <>
-                {dataGroups.memberGroups &&
-                  dataGroups.memberGroups.map((group) => (
-                    <>
-                      <Link
-                        to={`/group/${group?._id}`}
-                        className="req_card_pagegroup hover3"
-                        style={{ width: "99%", borderRadius: "10px" }}
-                      >
-                        <div className="group_content_pagegroup">
-                          <div className="content_head_pagegroup">
-                            <div>
-                              <img src={group?.cover} alt="" />
-                            </div>
-                            <div>
-                              <div className="req_name">
-                                {group?.group_name}
+              <div className="splitter" style={{marginBottom:"10px", marginTop:"0px", marginLeft:"-5px", marginRight:"5px"}}></div>
+              {groupsLoading ? (
+                <div className="sekelton_loader">
+                  <PuffLoader color="#1876f2" />
+                </div>
+              ) : (
+                <>
+                  {dataGroups.memberGroups &&
+                    dataGroups.memberGroups.map((group) => (
+                      <>
+                        <Link
+                          to={`/group/${group?._id}`}
+                          className="req_card_pagegroup hover3"
+                          style={{ width: "97%", borderRadius: "10px" }}
+                        >
+                          <div className="group_content_pagegroup">
+                            <div className="content_head_pagegroup">
+                              <div>
+                                <img src={group?.cover} alt="" />
                               </div>
-                              <div
-                                className="post_profile_privacy_date"
-                                style={{ gap: "5px" }}
-                              >
-                                {group.public ? (
-                                  <>
-                                    {" "}
-                                    <Public color="#828387" />{" "}
-                                    <p>Public group</p> <p>.</p>
-                                  </>
-                                ) : (
-                                  <>
-                                    {" "}
-                                    <i className="private_icon"></i>
-                                    <p>Private group</p>
-                                    <p>.</p>
-                                  </>
-                                )}
-                                <p>{group?.numMembers}</p> <p> members</p>
+                              <div>
+                                <div className="req_name">
+                                  {group?.group_name}
+                                </div>
+                                <div
+                                  className="post_profile_privacy_date"
+                                  style={{ gap: "5px" }}
+                                >
+                                  {group.public ? (
+                                    <>
+                                      {" "}
+                                      <p>Public group</p> <p>.</p>
+                                    </>
+                                  ) : (
+                                    <>
+                                      {" "}
+                                      <p>Private group</p>
+                                      <p>.</p>
+                                    </>
+                                  )}
+                                  <p>
+                                    {group?.numMembers}{" "}
+                                    {group?.numMembers === 1
+                                      ? "member"
+                                      : "members"}
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </>
-                  ))}
-              </>
-            )}
+                        </Link>
+                      </>
+                    ))}
+                </>
+              )}
+            </div>
           </div>
         </div>
         <div className="friends_right" style={{ overflowX: "hidden" }}>
@@ -292,7 +338,7 @@ export default function Groups({
                   <PuffLoader color="#1876f2" />
                 </div>
               ) : (
-                <div className="posts" style={{ marginLeft: "310px" }}>
+                <div className="posts" style={{ marginLeft: "220px" }}>
                   {dataPostGroups && dataPostGroups?.length > 0 ? (
                     dataPostGroups.map((post) => (
                       <Post
@@ -315,7 +361,6 @@ export default function Groups({
                       />
                     ))
                   ) : (
-                    
                     <div className="no_posts" style={{ marginRight: "654px" }}>
                       Empty
                     </div>

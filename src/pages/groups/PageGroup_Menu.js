@@ -10,34 +10,34 @@ export default function PageGroup_Menu({
   const [groupsMenuDots, setGroupsMenuDots] = useState(false);
   return (
     <div className="pagegroupe_menu_wrap">
-      <div className="pagegroupe_menu">
+      <div className="pagegroupe_menu" >
         <Link
           to={`/group/${idGroup}`}
-          className={sk === undefined ? "profile_menu_active" : "hover1"}
+          className={sk === undefined ? "profile_menu_active" : "hover1"} style={{ width: sk === undefined ? "180px" : "180px" }}
         >
           Discussion
         </Link>
         <Link
           to={`/group/${idGroup}/members`}
-          className={sk === "members" ? "profile_menu_active" : "hover1"}
+          className={sk === "members" ? "profile_menu_active" : "hover1"} style={{ width: sk === undefined ? "180px" : "180px" }}
         >
           Members
         </Link>
-        <Link
+        {/* <Link
           to={`/group/${idGroup}/media`}
           className={medias.includes(sk) ? "profile_menu_active" : "hover1"}
         >
           Media
-        </Link>
+        </Link> */}
 
-        <div
+        {/* <div
           className="p10_dots"
           onClick={() => setGroupsMenuDots((prev) => !prev)}
         >
           <Dots />
-        </div>
+        </div> */}
       </div>
-      {groupsMenuDots && (
+      {/* {groupsMenuDots && (
         <div
           className="open_cover_menu"
           style={{
@@ -58,10 +58,10 @@ export default function PageGroup_Menu({
         >
           <div className="open_cover_menu_item hover1">
             <i className="report"></i>
-            Report group
+            Repsort group
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

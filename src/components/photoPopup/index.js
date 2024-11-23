@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { getPostByUrl } from "../../functions/post";
 import { getCountCommentInPost } from "../../functions/comment";
 import { getComment } from "../../functions/comment";
-import { getReactsPost } from "../../functions/post";
+import { getReactsPost, savePost } from "../../functions/post";
 import { reactPost } from "../../functions/post";
 import { createNotification } from "../../functions/notification";
 import { Link } from "react-router-dom";
@@ -14,6 +14,8 @@ import ReactsPopup from "../post/ReactsPopup";
 import CreateComment from "../post/CreateComment";
 import Comment_detail from "../post/Comment_detail";
 import PostMenu from "../post/PostMenu";
+import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { postReducer } from "../../functions/reducers";
 import { HashLoader, BounceLoader } from "react-spinners";
 import LogoDevOutlinedIcon from "@mui/icons-material/LogoDevOutlined";
@@ -27,6 +29,8 @@ export default function PhotoPopup({
   setVisiblePhoto,
   visiblePhoto,
   socket,
+  postId,
+  token,
 }) {
   const { user } = useSelector((state) => ({ ...state }));
   const textRef = useRef(null);
@@ -53,7 +57,14 @@ export default function PhotoPopup({
     setVisibleReactComment(null);
     getPost();
   }, []);
-
+  const saveHandler = async () => {
+    savePost(postId, token);
+    if (checkSaved) {
+      setCheckSaved(false);
+    } else {
+      setCheckSaved(true);
+    }
+  };
   const [{ loading: postLoading, error: postError, post }, dispatchPost] =
     useReducer(postReducer, {
       loading: false,
@@ -329,7 +340,6 @@ export default function PhotoPopup({
               </div>
               <div className="to_right">
                 <div className="comments_count">{totalComment} comments</div>
-                <div className="share_count">0 share</div>
               </div>
             </div>
             <div className="post_actions">
@@ -391,9 +401,20 @@ export default function PhotoPopup({
                 <i className="comment_post_icon"></i>
                 <span>Comment</span>
               </div>
-              <div className="post_action hover1">
-                <i className="share_icon"></i>
-                <span>Share</span>
+              <div className="post_action hover1" onClick={() => saveHandler()}>
+                {checkSaved ? (
+                  <>
+                    <BookmarkOutlinedIcon
+                      style={{ color: "#4267b2", fontSize: 20 }}
+                    />
+                    <span style={{ color: "#4267b2" }}>Saved</span>
+                  </>
+                ) : (
+                  <>
+                    <BookmarkBorderIcon style={{ fontSize: 20 }} />
+                    <span>Save</span>
+                  </>
+                )}
               </div>
             </div>
             <div

@@ -120,7 +120,7 @@ export default function CreatePostPopup({
         {error && <PostError error={error} setError={setError} />}
         <div
           className="box_header"
-          style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px" }}
+          style={{ borderTopLeftRadius: "20px", borderTopRightRadius: "20px", height:"60px" }}
         >
           <div
             className="small_circle"
@@ -128,17 +128,16 @@ export default function CreatePostPopup({
               setVisible(false);
             
             }}
-            style={{paddingBottom:"5px", }}
           >
-            {/* <i className="exit_icon"></i> */}
-            <MinimizeIcon sx={{color:"#fff",paddingB8ottom:"10px", }}/>
+            <i className="exit_icon"></i>
+            {/* <MinimizeIcon sx={{color:"#fff",paddingB8ottom:"10px", }}/> */}
           </div>
           <span>Create Post</span>
         </div>
         <div className="box_profile">
           <img src={user.picture} alt="" className="box_profile_img" />
           <div className="box_col">
-            <div className="box_profile_name">
+            <div className="box_profile_name" style={{paddingTop:"15px"}}>
               {user.first_name} {user.last_name}
             </div>
           </div>

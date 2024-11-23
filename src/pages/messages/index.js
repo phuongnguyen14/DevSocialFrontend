@@ -7,6 +7,7 @@ import { HashLoader } from "react-spinners";
 import Picker from "emoji-picker-react";
 import { uploadImages } from "../../functions/uploadImages";
 import DeatilMess from "../../svg/deatilMess";
+import CommentsDisabledIcon from '@mui/icons-material/CommentsDisabled';
 import { Search } from "../../svg";
 import Circle from "../../svg/circle";
 import Media from "../../svg/media";
@@ -404,7 +405,7 @@ export default function Messages({
                   width: "1400px",
                 }}
               >
-                <i className="choose_mess"></i>
+                <CommentsDisabledIcon/>
                 <p
                   style={{
                     fontSize: "1.25rem",

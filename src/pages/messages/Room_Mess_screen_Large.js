@@ -272,7 +272,7 @@ export default function Room_Mess_screen_Large({
 
         <div
           className="messages_screen scrollbar"
-          style={detail ? { width: "963px" } : { width: "1324px" }}
+          style={detail ? { width: "963px" } : { width: "1530px" }}
           ref={chatContainerRef}
         >
           <div
@@ -371,10 +371,21 @@ export default function Room_Mess_screen_Large({
           )}
         </div>
 
-        <div className="write_chat">
+        <div className="write_chat"style={{marginBottom:"-30px"}}>
           <div className="create_comment_wrap" style={{ marginTop: "10px" }}>
             <div className="create_comment">
-              <div className="comment_input_wrap">
+              <div className="comment_input_wrap" style={{
+                  marginBottom: "0",
+                  borderRadius: "10px",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                 
+                  height: "40px",
+                  fontSize: "30px",
+                  paddingTop: "5px",
+                  paddingBottom: "5px",
+                  
+                }}>
                 {picker && (
                   <div className="comment_emoji_picker">
                     <Picker onEmojiClick={handleEmoji} />

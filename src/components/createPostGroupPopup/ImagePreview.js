@@ -65,7 +65,7 @@ export default function ImagePreview({
                 }}
               >
                 <i className="addPhoto_icon"></i>
-                Add Photos/Videos
+                Add Photos
               </button>
             </div>
             <div

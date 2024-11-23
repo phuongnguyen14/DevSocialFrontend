@@ -28,12 +28,13 @@ export default function Post({
   setVisiblePost,
   setVisibleReact,
   commentId,
+  token,
   postId,
   setVisibleReactComment,
   visibleReactComment,
   setVisiblePhoto,
   page,
-  token,
+  
   setReport,
   setReportGroup,
 }) {
@@ -49,24 +50,31 @@ export default function Post({
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
   const group = ["coverPictureGroup", "group"];
+  
   const textRef = useRef(null);
   const postRef = useRef(null);
   useEffect(() => {
     getPostReacts();
   }, [post?._id]);
+
   const saveHandler = async () => {
-    savePost(postId, token);
-    if (checkSaved) {
-      setCheckSaved(false);
-    } else {
-      setCheckSaved(true);
+    if (!post?._id) {
+      console.error("postId is undefined");
+      return;
+    }
+
+    try {
+      await savePost(post._id, token);
+      setCheckSaved(!checkSaved);
+    } catch (error) {
+      console.error("Failed to save post:", error);
     }
   };
   const handleComment = () => {
     // Gọi phương thức focus() trên đối tượng DOM của input
     textRef.current.focus();
   };
-  
+
   useEffect(() => {
     getPostComments();
     getCountCommentPost();
@@ -226,7 +234,15 @@ export default function Post({
                 <>
                   <Link to={`/profile/${post.user._id}`} className="hover6">
                     {post.user.first_name} {post.user.last_name} &nbsp;
-                    @{fullNameWithoutAccent}&nbsp;
+                    <p
+                      style={{
+                        fontSize: "12px",
+                         // Làm chữ nghiêng
+                        fontWeight: "200", // Làm chữ mỏng hơn
+                      }}
+                    >
+                      @{fullNameWithoutAccent}&nbsp;
+                    </p>
                   </Link>
                 </>
               )}
@@ -234,7 +250,7 @@ export default function Post({
               <div className="updated_p">
                 {post.type == "profilePicture" &&
                   `updated ${
-                    post.user.gender === "male" ? "his" : "her" 
+                    post.user.gender === "male" ? "his" : "her"
                   } profile picture`}
                 {post.type == "coverPicture" &&
                   `updated ${
@@ -244,7 +260,7 @@ export default function Post({
                   `updated the group cover photo.`}
               </div>
             </div>
-            
+
             <div className="post_profile_privacy_date">
               {group.includes(post.type) && page === "home" && (
                 <>
@@ -404,7 +420,7 @@ export default function Post({
               src={`../../../reacts/${check}.svg`}
               alt=""
               className="small_react"
-              style={{ width: "18px" }}
+              style={{ width: "20px" }}
             />
           ) : (
             <i className="like_icon"></i>

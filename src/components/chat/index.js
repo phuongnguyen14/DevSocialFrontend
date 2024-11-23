@@ -46,6 +46,7 @@ export default function Chat_screen({
   const [loadingMess, setLoadingMess] = useState(false);
   const [mediaDetail, setMediaDetail] = useState(null);
   const [themes, setThemes] = useState(false);
+  
   let chatWindowStyle;
   let chatWindowStyleMenu;
   useClickOutside(menu1, () => setChatMenu(false));
@@ -205,20 +206,20 @@ export default function Chat_screen({
       position: "fixed",
     };
   } else if (stt === 1) {
-    chatWindowStyle = { right: "425px" };
+    chatWindowStyle = { right: "350px" };
     chatWindowStyleMenu = {
       bottom: "calc(266px + 50px)", // Cách box chat 1px
-      right: "425px",
+      right: "350px",
       width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",
       position: "fixed",
     };
   } else if (stt === 2) {
-    chatWindowStyle = { right: "770px" };
+    chatWindowStyle = { right: "680px" };
     chatWindowStyleMenu = {
       bottom: "calc(266px + 50px)", // Cách box chat 1px
-      right: "770px",
+      right: "680px",
       width: "310px", // Cùng chiều rộng với box chat
       zIndex: "9999999",
       border: "1px solid #ccc",

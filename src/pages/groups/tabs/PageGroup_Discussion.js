@@ -53,7 +53,7 @@ export default function PageGroup_Discussion({
   return (
     <>
       <div className="pagegroup_grid">
-        <div className="pagegroup_left">
+        <div className="pagegroup_left" style={{marginRight:"260px"}}>
           {(member || admin) && (
             <CreatePost user={user} setVisible={setVisible} />
           )}
@@ -63,7 +63,7 @@ export default function PageGroup_Discussion({
               <PuffLoader color="#1876f2" />
             </div>
           ) : (
-            <div className="posts">
+            <div className="posts" style={{marginLeft:"0px"}}>
               {dataPageGroup?.posts && dataPageGroup?.posts?.length > 0 ? (
                 dataPageGroup?.posts?.map((post) => (
                   <Post
@@ -82,10 +82,11 @@ export default function PageGroup_Discussion({
                     setVisiblePhoto={setVisiblePhoto}
                     setReportGroup={setReportGroup}
                     setReport={setReport}
+                    
                   />
                 ))
               ) : (
-                <div className="no_posts">No posts available</div>
+                <div className="no_posts">No post</div>
               )}
             </div>
           )}
@@ -94,12 +95,12 @@ export default function PageGroup_Discussion({
         <div className="pagegroupe_right" ref={rightSide}>
           {loading ? (
             <>
-              <div className="profile_card">
+              {/* <div className="profile_card">
                 <div className="profile_card_header">About</div>
                 <div className="sekelton_loader">
                   <PuffLoader color="#1876f2" />
                 </div>
-              </div>
+              </div> */}
               <div className="profile_card">
                 <div className="profile_card_header">
                   Media
@@ -112,12 +113,12 @@ export default function PageGroup_Discussion({
             </>
           ) : (
             <>
-              <About_group
+              {/* <About_group
                 dataPageGroup={dataPageGroup}
                 detailss={[]}
                 visitor={member}
                 setOthername={setOthername}
-              />
+              /> */}
               <Photos
                 idGroup={idGroup}
                 token={user.token}

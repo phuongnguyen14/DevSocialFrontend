@@ -66,7 +66,7 @@ export default function Card({ userr, type, getData ,socket}) {
           className="blue_btn"
           onClick={() => cancelRequestHandler(userr._id)}
         >
-          Cancel Request
+          Cancel
         </button>
       ) : type === "request" ? (
         <>

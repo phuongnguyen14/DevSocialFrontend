@@ -42,6 +42,7 @@
 
 .active_friends {
   background: var(--bg-secondary);
+  margin-right: 10px;
 }
 
 .active_friends .small_circle {
@@ -273,8 +274,9 @@
 
 .group_content_pagegroup {
   margin: 5px;
+  margin-left: 10px;
+  
   gap: 12px;
-  place-items: center;
 }
 
 .content_head_pagegroup {
@@ -303,7 +305,7 @@
 .pagegroup_cover {
   position: relative;
   height: 460px;
-  width: 1260px;
+  width: 1500px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background: var(--bg-secondary);
@@ -322,7 +324,7 @@
   display: flex;
   grid-template-columns: 1fr 1.4fr;
   gap: 10px;
-  width: 1200px;
+  width: 1360px;
 }
 
 
@@ -332,23 +334,24 @@
 }
 
 .pagegroup_container {
-  max-width: 1272px;
-  margin-left: 30px;
+  max-width: 1500px;
+  margin-left: 0px;
   margin: 0 auto;
 }
 
 .pagegroup_left {
-  flex: 4;
+  flex: 2;
+  
   position: relative;
   ;
 }
 
 .pagegroupe_right {
-  flex: 3;
+  flex: 2;
 }
 
 .pagegroupe_menu_wrap {
-  margin-left: 30px;
+  margin-left: 0px;
   position: relative;
   padding: 0 2.2rem;
   gap: 10px;
@@ -360,7 +363,7 @@
   display: flex;
   padding: 0;
   gap: 10px;
-  width: 1206px;
+  width: 1460px;
 }
 
 
@@ -518,4 +521,83 @@
 
 .mmenu_item.active_friends span {
   color: white; /* Đổi màu chữ khi active */
+}
+.group_left_title{
+  background: var(--bg-primary);
+  filter: brightness(1.3);
+  border-radius: 10px;
+  cursor: pointer;
+  height: 5vh;
+  width: 97%;
+  padding-top: 5px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-left: 8px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+  display: flex;
+  justify-content: center;
+}
+.group_left_tab{
+  background: var(--bg-primary);
+  filter: brightness(1.3);
+  border-radius: 10px;
+  cursor: pointer;
+  height: 6vh;
+  width: 100%;
+  padding-top: 2px;
+  padding-left: 10px;
+  margin:5px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+  display: flex;
+  align-items: center;
+}
+.group_tab_box{
+  background: var(--bg-primary);
+  filter: brightness(1.4);
+  border-radius: 10px;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  box-shadow: 0 1px 2px var(--shadow-1);
+}
+.group_tab_title{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
+}.create_chat_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 75px;
+  left: 50%; /* Đặt ở giữa màn hình nếu cần */
+  transform: translateX(-50%);
+  text-align: center;
+  cursor: pointer;
+}
+
+.icon_wrapper {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e6f2ff; /* Màu nền xanh nhạt */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng */
+}
+
+.chat_text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #0567d2;
+  font-weight: 500;
 }

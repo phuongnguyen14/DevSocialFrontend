@@ -2,7 +2,7 @@ import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import LoginInput from "../../components/inputs/loginInput";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -24,6 +24,13 @@ export default function LoginForm({ setVisible, socket }) {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
+  const clearField = (field) => {
+    setLogin({ ...login, [field]: "" });
+  };
+  useEffect(() => {
+    // Reset input fields if the user refreshes or navigates back
+    setLogin(loginInfos);
+  }, []);
   // Validation schema cho Formik
   const loginValidation = Yup.object({
     email: Yup.string()

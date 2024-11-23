@@ -961,7 +961,7 @@ export default function ModerationAlerts({
                           </div>
                           <div
                             className="pagegroupe_friend_imgs"
-                            style={{ width: "1215px" }}
+                            style={{ width: "1460px" }}
                           >
                             {((sk === undefined &&
                               !dataPageGroup.public &&

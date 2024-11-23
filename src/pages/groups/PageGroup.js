@@ -9,9 +9,10 @@ import { pagegroup } from "../../functions/reducers";
 import CreatePostGroupPopup from "../../components/createPostGroupPopup";
 import Skeleton from "react-loading-skeleton";
 import Media from "./tabs/Media";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import HomeIcon from "@mui/icons-material/Home";
 
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import AddIcon from "@mui/icons-material/Add";
+import Diversity2Icon from '@mui/icons-material/Diversity2';
 import Detail_Albums_Group from "./tabs/Detail_Albums_Group";
 import PageGroup_Menu from "./PageGroup_Menu";
 import useClickOutside from "../../helpers/clickOutside";
@@ -655,12 +656,22 @@ export default function PageGroup({
                               onClick={() => {
                                 offroom(room);
                               }}
+                              style={{
+                                
+                                borderRadius:"10px",
+                                cursor:"pointer",
+                                height:"auto",
+                                width: "auto",
+                                
+                                boxShadow: "0 1px 2px var(--shadow-1)",
+                              }}
                             >
                               <div className="contact_img">
-                                <img
+                                <Diversity2Icon/>
+                                {/* <img
                                   src="https://scontent.xx.fbcdn.net/v/t1.15752-9/311070626_1205014643680530_1668259112361737223_n.png?stp=dst-png_p206x206&_nc_cat=1&ccb=1-7&_nc_sid=61f064&_nc_eui2=AeHfBBLA5FlKKmGPuagiNTCojrnsystYOW6OuezKy1g5bpHeCc5WAkItMMppJAXcH7ie72ft81ZTeWwLzZeck5Rs&_nc_ohc=KYklkO2PBPEAX81938B&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdT74-ubXg7-mnF7yFEQfZ0Y4WXQfcDacUYeZFqq-QE_7g&oe=65DE9B87"
                                   alt=""
-                                />
+                                /> */}
                               </div>
                               {room?.groupRef?.members?.map((member) => {
                                 const isUserOnline = onlineUsers.some(
@@ -1022,20 +1033,17 @@ export default function PageGroup({
 
           {admin && (
             <>
-              <div
-                className="light_blue_btn hover5"
-                // style={{marginTop: "483px"}}
-                style={{ position: "absolute", bottom: "75px", width: "340px" }}
-                onClick={() => setVisibleCreatRoomMess(true)}
-              >
-                <img
-                  src="../../../icons/add.png"
-                  alt=""
-                  className="filter_blue"
-                />
-                <p style={{ color: "#0567D2" }}>Create a chat</p>
+            <div
+              className="create_chat_btn"
+              onClick={() => setVisibleCreatRoomMess(true)}
+            >
+              <div className="icon_wrapper">
+                <AddIcon style={{ fontSize: 32, color: "#0567D2" }} />
               </div>
-            </>
+              <p className="chat_text">Create a chat</p>
+            </div>
+          </>
+          
           )}
         </div>
         <div className="friends_right_pagegroup">
@@ -1144,7 +1152,7 @@ export default function PageGroup({
                           </div>
                           <div
                             className="pagegroupe_friend_imgs"
-                            style={{ width: "1215px" }}
+                            style={{ width: "1460px" }}
                           >
                             {((sk === undefined &&
                               !dataPageGroup.public &&
@@ -1192,7 +1200,7 @@ export default function PageGroup({
                                 </div>
                               </>
                             )}
-                            {!visitor && !isUserPending && (
+                            {/* {!visitor && !isUserPending && (
                               <>
                                 {" "}
                                 <div className="reg_btn_wrapper">
@@ -1208,7 +1216,7 @@ export default function PageGroup({
                                   </div>
                                 </div>
                               </>
-                            )}
+                            )} */}
                             {visitor && isUserPending && (
                               <>
                                 <button

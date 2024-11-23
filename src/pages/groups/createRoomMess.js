@@ -75,13 +75,12 @@ export default function CreateRoomMess({
   return (
     <div className="blur">
       <div className="register">
-        <div className="register_header">
+        <div className="register_header" >
           <i
             className="exit_icon"
             onClick={() => setVisibleCreatRoomMess(false)}
           ></i>
-          <span>New community chat</span>
-          <span>it's quick and easy</span>
+          <span style={{display:"flex", justifyContent:"center", fontSize:"30px"}}>Group chat</span>
         </div>
         <Formik
           enableReinitialize
@@ -96,18 +95,43 @@ export default function CreateRoomMess({
         >
           {(formik) => (
             <Form className="register_form">
-              <div className="reg_line">
+              <div className="reg_line" style={{marginTop:"10px"}}>
+                <span style={{display:"flex", alignItems:"center"}}>Name:</span>
                 <GroupInput
                   type="text"
-                  placeholder="Name your chat"
+                  placeholder="Name group chat"
                   name="room_name"
                   onChange={handleRoomChange}
                 />
               </div>
 
               <div className="reg_btn_wrapper">
-                <button className="blue_btn open_signup">Create chat</button>
-              </div>
+  <button
+    className="blue_btn open_signup"
+    style={{
+      background: 'linear-gradient(135deg, #00c6ff, #0072ff)', // Màu gradient
+      color: 'white',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      transition: 'transform 0.3s ease, background 0.3s ease', // Hiệu ứng hover
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.transform = 'scale(1.1)'; // Phóng to khi hover
+      e.target.style.background = 'linear-gradient(135deg, #0072ff, #00c6ff)'; // Đảo ngược gradient khi hover
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = 'scale(1)'; // Trở lại kích thước ban đầu khi không hover
+      e.target.style.background = 'linear-gradient(135deg, #00c6ff, #0072ff)'; // Trở lại màu gradient ban đầu
+    }}
+  >
+    Create chat
+  </button>
+</div>
+
               <DotLoader color="#1876f2" loading={loading} size={30} />
               {error && <div className="error_text">{error}</div>}
               {success && <div className="success_text">{success}</div>}

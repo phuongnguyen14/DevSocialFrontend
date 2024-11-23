@@ -4,6 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../../components/header";
 import { RingLoader } from "react-spinners";
 import Card from "./Card";
+import {
+  PeopleAlt,
+  PersonAddAlt,
+  Outbound,
+  Group,
+} from "@mui/icons-material";
 import FriendCard from "../../components/friend/FriendCard";
 import "./style.css";
 export default function Friends({
@@ -43,10 +49,8 @@ export default function Friends({
       />
       <div className="friends">
         <div className="friends_left">
-          
           <div className="friends_left_header">
             <h2 className="friend_left_title">Friend</h2>
-            
           </div>
           <div className="friends_left_wrap">
             <Link
@@ -55,18 +59,13 @@ export default function Friends({
                 type === undefined && "active_friends"
               }`}
             >
-              <div className="friend_left_tab" >
-              <div className="small_circle">
-                <i className="friends_home_icon "></i>
+              <div className="friend_left_tab">
+                <div className="small_circle">
+                <PeopleAlt style={{ fontSize: 24, color: "var(--icon-color)" }} />
+                </div>
+                <span>All</span>
+                
               </div>
-              <span>All actions</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
-              </div>
-              </div>
-             
-              
-              
             </Link>
             <Link
               to="/friends/requests"
@@ -74,12 +73,12 @@ export default function Friends({
                 type === "requests" && "active_friends"
               }`}
             >
-              <div className="small_circle">
-                <i className="friends_requests_icon"></i>
-              </div>
-              <span>Friend Requests</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
+              <div className="friend_left_tab">
+                <div className="small_circle">
+                <PersonAddAlt style={{ fontSize: 24, color: "var(--icon-color)" }} />
+                </div>
+                <span>Friend Request</span>
+                
               </div>
             </Link>
             <Link
@@ -88,30 +87,29 @@ export default function Friends({
                 type === "sent" && "active_friends"
               }`}
             >
-              <div className="small_circle">
-                <i className="friends_requests_icon"></i>
-              </div>
-              <span>Sent Requests</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
+              <div className="friend_left_tab">
+                <div className="small_circle">
+                <Outbound style={{ fontSize: 24, color: "var(--icon-color)" }} />
+                </div>
+                <span>Your Requests</span>
+                
               </div>
             </Link>
-           
+
             <Link
               to="/friends/all"
               className={`mmenu_item hover3 ${
                 type === "all" && "active_friends"
               }`}
             >
-              <div className="small_circle">
-                <i className="all_friends_icon"></i>
-              </div>
-              <span>All Friends</span>
-              <div className="rArrow">
-                <i className="right_icon"></i>
+              <div className="friend_left_tab">
+                <div className="small_circle">
+                <Group style={{ fontSize: 24, color: "var(--icon-color)" }} />
+                </div>
+                <span>Your Friends</span>
+                
               </div>
             </Link>
-           
           </div>
         </div>
         <div className="friends_right">
@@ -223,7 +221,7 @@ export default function Friends({
           {(type === undefined || type === "sent") && (
             <div className="friends_right_wrap">
               <div className="friends_left_header">
-                <h3>Sent Requests</h3>
+                <h3>Your Requests</h3>
                 {type === undefined && (
                   <Link to="/friends/sent" className="see_link hover3">
                     See all

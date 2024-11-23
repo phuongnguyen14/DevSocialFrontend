@@ -340,19 +340,20 @@ export default function Chat_screen_Large({
           )}
         </div>
 
-        <div className="write_chat">
+        <div className="write_chat" style={{marginBottom:"-30px"}}>
           <div className="create_comment_wrap" style={{}}>
             <div className="create_comment">
               <div
                 className="comment_input_wrap"
                 style={{
-                  marginBottom: "0",
+                  bottom: 0,
                   borderRadius: "10px",
                   marginLeft: "10px",
                   marginRight: "10px",
+                  marginTop:"10px",
                   height: "40px",
                   fontSize: "30px",
-                  paddingTop: "15px",
+                  paddingTop: "5px",
                   paddingBottom: "5px",
                   
                 }}

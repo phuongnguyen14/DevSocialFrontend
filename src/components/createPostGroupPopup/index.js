@@ -128,7 +128,14 @@ export default function CreatePostGroupPopup({
     <div className="blur">
       <div className="postBox" ref={popup}>
         {error && <PostError error={error} setError={setError} />}
-        <div className="box_header">
+        <div
+          className="box_header"
+          style={{
+            borderTopLeftRadius: "15px",
+            borderTopRightRadius: "15px",
+            height: "60px",
+          }}
+        >
           <div
             className="small_circle"
             onClick={() => {
@@ -183,8 +190,13 @@ export default function CreatePostGroupPopup({
             postSubmit();
           }}
           disabled={loading}
-          style={{ backgroundColor: "#4e8bc8" }}
-
+          style={{
+            backgroundColor: "#4e8bc8",
+            marginBottom: "10px",
+            marginTop: "10px",
+            borderBottomRightRadius: "15px",
+            borderBottomLeftRadius: "15px",
+          }}
         >
           {loading ? <PulseLoader color="#fff" size={5} /> : "Post"}
         </button>

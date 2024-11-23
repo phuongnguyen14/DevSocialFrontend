@@ -72,7 +72,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
+  width: 160px;
   height: 50px;
   border-radius: 2px;
   cursor: pointer;
@@ -113,7 +113,7 @@ header {
   position: absolute;
   top: 3px;
   right: 1.9rem;
-  background: #e41e3f;
+  background: #009ffc;
   border-radius: 50px;
   padding: 1px 5px;
   font-size: 13px;
@@ -208,13 +208,15 @@ header {
 
 .right_notification {
   position: absolute;
-  top: -4px;
-  right: -6px;
+  top: -7px;
+  right: -9px;
   background: #1eafe4;
   border-radius: 50px;
   padding: 1px 6px;
   font-size: 10px;
   color: #fcfeff;
+  border:2px solid var(--bg-primary);
+
 }
 
 /*---Header right-----*/

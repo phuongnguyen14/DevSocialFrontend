@@ -17,9 +17,9 @@ export default function AddToYourPost({ setShowPrev, setBackground }) {
       <div className="post_header_right hover1">
         <StyleOutlined style={iconStyle} />
       </div>
-      <div className="post_header_right hover1">
+      {/* <div className="post_header_right hover1">
         <SentimentSatisfiedAlt style={iconStyle} />
-      </div>
+      </div> */}
       <div className="post_header_right hover1">
         <MyLocation style={iconStyle} />
       </div>
