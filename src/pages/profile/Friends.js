@@ -4,7 +4,7 @@ export default function Friends({ friends, idUser }) {
     <>
       <div className="profile_card">
         <div className="profile_card_header">
-          Friends
+          friends
           <Link
             to={
               idUser ? `/profile/${idUser}&sk=friends` : "/profile&sk=friends"

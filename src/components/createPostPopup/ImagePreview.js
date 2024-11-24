@@ -65,7 +65,7 @@ export default function ImagePreview({
                 }}
               >
                 <i className="addPhoto_icon"></i>
-                Add Photos/Videos
+                Add Photos
               </button>
             </div>
             <div
@@ -117,7 +117,7 @@ export default function ImagePreview({
               <div className="add_circle">
                 <i className="addPhoto_icon"></i>
               </div>
-              <span>Add Photos/Videos</span>
+              <span>Add Photo</span>
             </div>
           </div>
         )}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useClickOutside from "../../helpers/clickOutside";
+import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import { useSelector } from "react-redux";
 import {
   acceptRequest,
@@ -19,13 +20,15 @@ export default function Friendship({
   setShowChat,
   setShowChatRoom,
   profile,
-  openChatWindow
+  openChatWindow,
 }) {
   const [friendship, setFriendship] = useState(friendshipp);
   useEffect(() => {
     setFriendship(friendshipp);
   }, [friendshipp]);
-
+  const [isHoveredFollow, setIsHoveredFollow] = useState(false);
+  const [isHoveredUnfollow, setIsHoveredUnfollow] = useState(false);
+  const [isHoveredChat, setIsHoveredChat] = useState(false);
   const [friendsMenu, setFriendsMenu] = useState(false);
   const [respondMenu, setRespondMenu] = useState(false);
   const menu = useRef(null);
@@ -149,8 +152,8 @@ export default function Friendship({
             <span>Friends</span>
           </button>
           {friendsMenu && (
-            <div className="open_cover_menu" ref={menu}>
-              {friendship?.following ? (
+            <div className="open_cover_menu" ref={menu} style={{width:"94px", transform:"translateX(1px)", borderRadius:"5px", borderBottomLeftRadius:"15px", borderBottomRightRadius:"15px"}}>
+              {/* {friendship?.following ? (
                 <div
                   className="open_cover_menu_item hover1"
                   onClick={() => unfollowHandler()}
@@ -166,12 +169,12 @@ export default function Friendship({
                   <img src="../../../icons/unfollowOutlined.png" alt="" />
                   Follow
                 </div>
-              )}
+              )} */}
               <div
                 className="open_cover_menu_item hover1"
-                onClick={() => unfriendHandler()}
+                onClick={() => unfriendHandler()} style={{fontSize:"12px", display:"flex", justifyContent:"center"}}
               >
-                <i className="unfriend_outlined_icon"></i>
+                
                 Unfriend
               </div>
             </div>
@@ -203,7 +206,7 @@ export default function Friendship({
               <span>Respond</span>
             </button>
             {respondMenu && (
-              <div className="open_cover_menu" ref={menu1}>
+              <div className="open_cover_menu" ref={menu1}style={{width:"100px", transform:"translateX(5px)", borderRadius:"5px", borderBottomLeftRadius:"15px", borderBottomRightRadius:"15px"}}>
                 <div
                   className="open_cover_menu_item hover1"
                   onClick={() => acceptRequestHanlder()}
@@ -223,12 +226,56 @@ export default function Friendship({
       )}
       <div className="flex">
         {friendship?.following ? (
-          <button className="gray_btn" onClick={() => unfollowHandler()}>
+          <button
+            className="gray_btn"
+            onClick={() => unfollowHandler()}
+            onMouseEnter={() => setIsHoveredUnfollow(true)}
+            onMouseLeave={() => setIsHoveredUnfollow(false)}
+            style={{
+              background: isHoveredUnfollow
+                ? "linear-gradient(90deg, #67c8ff, #4e8bc8)"
+                : "linear-gradient(90deg, #4e8bc8, #67c8ff)",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              fontSize: "14px",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              cursor: "pointer",
+              transition: "all 0.3s ease-in-out, transform 0.3s ease", 
+              transform: isHoveredUnfollow ? "scale(1.1)" : "scale(1)",
+            }}
+          >
             <img src="../../../icons/follow.png" alt="" />
             <span>Following</span>
           </button>
         ) : (
-          <button className="blue_btn" onClick={() => followHandler()}>
+          <button
+            className="blue_btn"
+            onClick={() => followHandler()}
+            onMouseEnter={() => setIsHoveredFollow(true)}
+            onMouseLeave={() => setIsHoveredFollow(false)}
+            style={{
+              background: isHoveredFollow
+                ? "linear-gradient(90deg, #67c8ff, #4e8bc8)"
+                : "linear-gradient(90deg, #4e8bc8, #67c8ff)",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              fontSize: "14px",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              cursor: "pointer",
+              transition: "all 0.3s ease-in-out, transform 0.3s ease", // Thêm transform vào transition
+              transform: isHoveredFollow ? "scale(1.1)" : "scale(1)", // Phóng to khi hover
+            }}
+          >
             <img src="../../../icons/follow.png" className="invert" alt="" />
             <span>Follow</span>
           </button>
@@ -243,13 +290,31 @@ export default function Friendship({
               last_name: profile.last_name,
             });
           }}
+          onMouseEnter={() => setIsHoveredChat(true)}
+          onMouseLeave={() => setIsHoveredChat(false)}
+          style={{
+            background: isHoveredChat
+              ? "linear-gradient(90deg, #67c8ff, #4e8bc8)"
+              : "linear-gradient(90deg, #4e8bc8, #67c8ff)",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px",
+            padding: "10px 20px",
+            fontSize: "14px",
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            cursor: "pointer",
+            transition: "all 0.3s ease-in-out, transform 0.3s ease", // Thêm transform vào transition
+            transform: isHoveredChat ? "scale(1.1)" : "scale(1)", // Phóng to khi hover
+          }}
         >
-          <img
-            src="../../../icons/message.png"
+          <MailOutlineOutlinedIcon
             className={friendship?.friends && "invert"}
-            alt=""
+            sx={{ color: "black" }}
           />
-          <span>Message</span>
+          <span>Chat</span>
         </button>
       </div>
     </div>

@@ -59,15 +59,15 @@ export default function ProfileMenu({
             photoSections.includes(sk) ? "profile_menu_active" : "hover1"
           }
         >
-          Photos
+          Photo
         </Link>
-        <div
+        {/* <div
           className="p10_dots"
           style={{ cursor: "pointer" }}
           onClick={() => setProfileMenuDots((prev) => !prev)}
         >
           <Dots />
-        </div>
+        </div> */}
       </div>
       {profileMenuDots && idUser !== user.id && (
         <div

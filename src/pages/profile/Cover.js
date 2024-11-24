@@ -9,7 +9,7 @@ import { updateCover } from "../../functions/user";
 import { createPost } from "../../functions/post";
 import PulseLoader from "react-spinners/PulseLoader";
 import OldCovers from "./OldCovers";
-
+import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 export default function Cover({ cover, visitor, photos, setVisiblePhoto }) {
   const [showCoverMneu, setShowCoverMenu] = useState(false);
   const [coverPicture, setCoverPicture] = useState("");
@@ -182,29 +182,13 @@ export default function Cover({ cover, visitor, photos, setVisiblePhoto }) {
         <div className="udpate_cover_wrapper">
           <div
             className="open_cover_update"
-            onClick={() => setShowCoverMenu((prev) => !prev)}
+            onClick={() => refInput.current.click()}
           >
-            <i className="camera_filled_icon"></i>
-            Add Cover Photo
+            {/* <i className="camera_filled_icon"></i> */}
+            <ImageOutlinedIcon  sx={{color:"#fff"}}/>
+            Change Background
           </div>
-          {showCoverMneu && (
-            <div className="open_cover_menu" ref={menuRef}>
-              {/* <div
-                className="open_cover_menu_item hover1"
-                onClick={() => setShow(true)}
-              >
-                <i className="photo_icon"></i>
-                Select Photo
-              </div> */}
-              <div
-                className="open_cover_menu_item hover1"
-                onClick={() => refInput.current.click()}
-              >
-                <UploadIcon sx={{color:"#ffffff"}}></UploadIcon>
-                Upload Photo
-              </div>
-            </div>
-          )}
+          
         </div>
       )}
       {show && (

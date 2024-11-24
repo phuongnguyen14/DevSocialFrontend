@@ -16,7 +16,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { GridLoader } from "react-spinners";
 import Posts from "./tabs/Posts";
 import About from "./tabs/About";
-import Videos from "./tabs/Videos";
 import Photos from "./tabs/Photos";
 import Check_ins from "./tabs/Check_ins";
 import Detail_Albums from "./tabs/Detail_Albums";
@@ -227,9 +226,9 @@ export default function Profile({
             <>
               <div className="profile_cover">
                 <Skeleton
-                  height="347px"
+                  height="450px"
                   containerClassName="avatar-skeleton"
-                  style={{ borderRadius: "8px" }}
+                  style={{ borderRadius: "15px" }}
                 />
               </div>
               <div
@@ -245,7 +244,7 @@ export default function Profile({
                     height="180px"
                     width="180px"
                     containerClassName="avatar-skeleton"
-                    style={{ transform: "translateY(-3.3rem)" }}
+                    style={{ transform: "translate(-0.6rem, -6.5rem)" }}
                   />
                   <div className="profile_w_col">
                     <div className="profile_name">
@@ -417,7 +416,7 @@ export default function Profile({
                   setVisiblePhoto={setVisiblePhoto}
                 />
               ))}
-            {sk === "videos" && <Videos />}
+            {/* {sk === "videos" && <Videos />} */}
             {sk === "check-ins" && <Check_ins />}
           </div>
         </div>

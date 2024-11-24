@@ -256,26 +256,7 @@ export default function Room_Mess_screen({
             <Diversity2Icon sx={{color:"#fff"}}/>
             <p>Group</p>
           </Link>
-          <Link
-            className="open_cover_menu_item hover1"
-            to={`/messages/${showChatRoom?._id}`}
-            onClick={() => {
-              setOpenChatWindowMess({
-                _id: showChatRoom?._id,
-                room_name: showChatRoom?.room_name,
-                group_name: showChatRoom?.groupRef?.group_name,
-                groupRef: showChatRoom?.groupRef,
-                color: showChatRoom?.color,
-                icon: showChatRoom?.icon,
-                roomId: showChatRoom?._id,
-                media: showChatRoom?.media,
-              });
-              closeChatWindow(stt);
-            }}
-          >
-           <FullscreenIcon sx={{color:"#fff"}}/>
-            <p>Fullscreen</p>
-          </Link>
+          
           <div className="mmenu_splitter"></div>
 
           <div
@@ -418,6 +399,31 @@ export default function Room_Mess_screen({
               </p>
             </div>
           </div>
+          <Link
+            className="open_cover_menu_item hover1"
+            to={`/messages/${showChatRoom?._id}`}
+            onClick={() => {
+              setOpenChatWindowMess({
+                _id: showChatRoom?._id,
+                room_name: showChatRoom?.room_name,
+                group_name: showChatRoom?.groupRef?.group_name,
+                groupRef: showChatRoom?.groupRef,
+                color: showChatRoom?.color,
+                icon: showChatRoom?.icon,
+                roomId: showChatRoom?._id,
+                media: showChatRoom?.media,
+              });
+              closeChatWindow(stt);
+            }}
+            style={{
+              position: "absolute",  // Đặt vị trí tuyệt đối
+              right: "35px",         // Dịch nút sang bên phải với khoảng cách 10px
+              bottom:"3px"
+            }}
+          >
+           <FullscreenIcon sx={{color:"#fff"}}/>
+            
+          </Link>
           <div
             className="small_circle_mess"
             onClick={() => {
@@ -427,7 +433,7 @@ export default function Room_Mess_screen({
             {unseen ? (
               <Exit color="#FFF" />
             ) : (
-              <Exit color={showChatRoom.color} />
+              <Exit color="#fff" />
             )}
           </div>
         </div>

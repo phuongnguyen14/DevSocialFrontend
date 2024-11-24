@@ -38,16 +38,24 @@
 }
 
 .open_cover_update {
-  background: #fff;
+  background: linear-gradient(45deg, #007bff, #00c6ff); /* Màu gradient xanh */
   padding: 7px 15px;
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
   font-size: 14px;
-  color: #111;
+  color: #fff; /* Chữ trắng */
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt */
+}
+
+.open_cover_update:hover {
+  transform: scale(1.1); /* Phóng to khi hover */
+  box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.3); /* Thêm hiệu ứng đổ bóng */
+  background: linear-gradient(45deg, #0056b3, #0091cc); /* Gradient khi hover */
+
 }
 
 .open_cover_update i {
@@ -103,7 +111,8 @@
 .profile_w_bg {
   width: 180px;
   height: 180px;
-  transform: translateY(-3.6rem);
+  transform: translate(-0.6rem, -6.5rem); /* Dịch chuyển phải 3.6rem và lên trên 3.6rem */
+
   border-radius: 50%;
   background-repeat: no-repeat;
   border: 2px solid #fff;
@@ -117,8 +126,8 @@
 
 .profile_circle {
   position: absolute;
-  bottom: 4.5rem;
-  right: 0.55rem;
+  bottom: 5.5rem;
+  right: 4.7rem;
   background: var(--bg-third);
   width: 36px;
   height: 36px;
@@ -129,7 +138,7 @@
 }
 
 .profile_name {
-
+  display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 700;
@@ -438,6 +447,7 @@ width: 1255px;
 
 .profile_card_count {
   color: var(--color-secondary);
+  transform: translateY(0.8rem);
 }
 
 .profile_card_grid {
@@ -560,6 +570,7 @@ width: 1255px;
 .profile_friend_imgs {
   display: flex;
   align-items: center;
+  transform: translateY(1rem);
 }
 
 .profile_friend_imgs img {

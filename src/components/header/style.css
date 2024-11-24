@@ -443,7 +443,7 @@ header {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 360px;
+  width:200px;
   border-radius: 10px;
   background: var(--bg-primary);
   box-shadow: 2px 2px 2px var(--shadow-1);
@@ -555,17 +555,17 @@ header {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 360px;
+  width: 200px;
   height: fit-content;
   border-radius: 10px;
   background: var(--bg-primary);
-  box-shadow: 2px 2px 2px var(--shadow-1);
   user-select: none;
   padding: 10px;
 }
 
 .absolute_wrap .mmenu_item {
   margin-top: 0;
+  
 }
 
 .absolute_wrap_header {
@@ -580,7 +580,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 50px;
+  margin-left: 10px;
   font-weight: 600;
   padding: 10px;
   cursor: pointer;
@@ -808,8 +808,8 @@ header {
 }
 
 .active_link {
-  background: var(--light-blue-color);
-  color: var(--blue-color);
+  background: rgb(87, 165, 224);
+  color: #fff;
 }
 
 /*----Active header----*/

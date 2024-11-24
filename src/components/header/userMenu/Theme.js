@@ -7,7 +7,7 @@ export default function Theme({ setVisible }) {
   const dispatch = useDispatch();
   const { darkTheme } = useSelector((state) => ({ ...state }));
   return (
-    <div className="absolute_wrap">
+    <div className="absolute_wrap" style={{boxShadow: "0 1px 1px #fff"}} >
       <div className="absolute_wrap_header">
         <div
           className="circle hover1"
@@ -35,6 +35,7 @@ export default function Theme({ setVisible }) {
           Cookies.set("darkTheme", false);
           dispatch({ type: "LIGHT" });
         }}
+        style={{width:"auto"}}
       >
         <WbSunnyIcon/>
         <span>Light Mode</span>

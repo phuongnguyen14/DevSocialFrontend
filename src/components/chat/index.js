@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useReducer } from "react";
+import { useEffect, useRef, useState, useReducer, } from "react";
 import "./style.css";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -249,7 +249,7 @@ export default function Chat_screen({
 
             <p>Profile</p>
           </Link>
-          <Link
+          {/* <Link
             className="open_cover_menu_item hover1"
             to={`/messages/${showChat?._id}`}
             onClick={() => {
@@ -268,7 +268,7 @@ export default function Chat_screen({
           >
             <FullscreenIcon sx={{color:"#fff"}}/>
             <p>Fullscreen</p>
-          </Link>
+          </Link> */}
           <div className="mmenu_splitter"></div>
 
           <div
@@ -368,14 +368,38 @@ export default function Chat_screen({
               {showChat?.first_name} {showChat?.last_name}
             </div>
           </div>
-
+          <Link
+            className="open_cover_menu_item hover1"
+            to={`/messages/${showChat?._id}`}
+            onClick={() => {
+              setOpenChatWindowMess({
+                _id: showChat?._id,
+                picture: showChat?.picture,
+                first_name: showChat?.first_name,
+                last_name: showChat?.last_name,
+                icon: custom?.icon,
+                color: custom?.color,
+                media: custom?.media,
+                roomId: custom?.roomId,
+              });
+              closeChatWindow(stt);
+            }}
+            style={{
+              position: "absolute",  // Đặt vị trí tuyệt đối
+              right: "35px",         // Dịch nút sang bên phải với khoảng cách 10px
+              bottom:"3px"
+            }}
+          >
+            <FullscreenIcon sx={{color:"#fff"}}/>
+            
+          </Link>
           <div
             className="small_circle_mess"
             onClick={() => {
               closeChatWindow(stt);
             }}
           >
-            {unseen ? <Exit color="#FFF" /> : <Exit color={custom?.color} />}
+            {unseen ? <Exit sx={{color:"#fff"}} /> : <Exit color="#fff"/>}
           </div>
         </div>
         <div className="messages scrollbar" ref={chatContainerRef}>

@@ -12,7 +12,7 @@ export default function ProfielPictureInfos({
   setVisiblePhoto,
   setShowChat,
   setShowChatRoom,
-  openChatWindow
+  openChatWindow,
 }) {
   const [show, setShow] = useState(false);
   const pRef = useRef(null);
@@ -57,16 +57,14 @@ export default function ProfielPictureInfos({
             <div className="othername">{othername && `(${othername})`}</div>
           </div>
           <div className="profile_friend_count">
-            {profile?.friends && (
+            {profile?.friends?.length > 0 && (
               <div className="profile_card_count">
-                {profile?.friends.length === 0
-                  ? ""
-                  : profile?.friends.length === 1
-                  ? "1 Friend"
-                  : `${profile?.friends.length} Friends`}
+                {profile.friends.length}{" "}
+                {profile.friends.length === 1 ? "friend" : "friends"}
               </div>
             )}
           </div>
+
           <div className="profile_friend_imgs">
             {profile?.friends &&
               profile.friends.slice(0, 6).map((friend, i) => (

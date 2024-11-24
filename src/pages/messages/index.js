@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams,useLocation  } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { ArrowDown1 } from "../../svg";
 import Header from "../../components/header";
 import { HashLoader } from "react-spinners";
 import Picker from "emoji-picker-react";
 import { uploadImages } from "../../functions/uploadImages";
 import DeatilMess from "../../svg/deatilMess";
-import CommentsDisabledIcon from '@mui/icons-material/CommentsDisabled';
+import CommentsDisabledIcon from "@mui/icons-material/CommentsDisabled";
 import { Search } from "../../svg";
 import Circle from "../../svg/circle";
 import Media from "../../svg/media";
@@ -75,7 +75,7 @@ export default function Messages({
     if (location.pathname === "/messages") {
       setOpenChatWindowMess(null);
     }
-  }, [location.pathname, setOpenChatWindowMess]); 
+  }, [location.pathname, setOpenChatWindowMess]);
   return (
     <>
       <Header
@@ -95,274 +95,296 @@ export default function Messages({
           className="friends_left"
           style={{ borderRight: "1px solid rgb(204, 204, 204)" }}
         >
-          <div className="friends_left_header">
-            <h2>Chats</h2>
-            <div className="small_circle">
-              <i className="settings_filled_icon"></i>
+          <div
+            className="left_chat_boder"
+            style={{
+              border: "1px solid grey",
+              borderRadius: "10px",
+              height: "93vh",
+              marginTop: "-3px",
+              backdropFilter: "blur(210px)",
+            }}
+          >
+            <div
+              className="friends_left_header"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "15px 20px", // Thêm padding để tăng chiều cao
+                height: "70px",
+                border: "1px solid grey",
+                borderRadius: "10px",
+                margin: "10px",
+              }}
+            >
+              <h2>Chats</h2>
             </div>
-          </div>
-          <div className="friends_left_wrap">
-            <div style={{ display: "flex" }}>
-              <div className="header_left">
-                <div
-                  className="search search1"
-                  style={{ width: "316px" }}
-                  onClick={() => {
-                    setShowSearchMenu(true);
-                  }}
-                >
-                  <Search color="#65676b" />
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="hide_input"
-                  />
+            <div className="friends_left_wrap">
+              <div style={{ display: "flex", paddingLeft:"10px" }}>
+                <div className="header_left">
+                  <div
+                    className="search search1"
+                    style={{ width: "250px" }}
+                    onClick={() => {
+                      setShowSearchMenu(true);
+                    }}
+                  >
+                    <Search color="#65676b" />
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      className="hide_input"
+                    />
+                  </div>
                 </div>
+                {showSearchMenu && (
+                  <SearchMessMenu
+                    color="#65676b"
+                    setShowSearchMenu={setShowSearchMenu}
+                    token={user.token}
+                    listMess={listMess}
+                    setOpenChatWindowMess={setOpenChatWindowMess}
+                    onlineUsers={onlineUsers}
+                  />
+                )}
               </div>
-              {showSearchMenu && (
-                <SearchMessMenu
-                  color="#65676b"
-                  setShowSearchMenu={setShowSearchMenu}
-                  token={user.token}
-                  listMess={listMess}
-                  setOpenChatWindowMess={setOpenChatWindowMess}
-                  onlineUsers={onlineUsers}
-                />
-              )}
-            </div>
 
-            {listMess?.rooms ? (
-              listMess?.rooms?.map((mess, i) => (
-                <>
-                  {mess?.group ? (
-                    <>
-                      <Link
-                        onClick={() => {
-                          setOpenChatWindowMess({
-                            _id: mess?.roomId,
-                            room_name: mess?.room_name,
-                            group_name: mess?.fndInfo?.group_name,
-                            groupRef: mess?.fndInfo,
-                            icon: mess?.icon,
-                            color: mess?.color,
-                            media: mess?.media,
-                            roomId: mess?.roomId,
-                          });
-                        }}
-                        to={`/messages/${mess?.roomId}`}
-                        className="mmenu_item hover3"
-                        style={
-                          mess?.roomId === openChatWindowMess?._id
-                            ? { background: "#e7f3ff" }
-                            : { cursor: "pointer" }
-                        }
-                        key={i}
-                      >
-                        <div className="profile_link">
-                          <div
-                            style={{
-                              width: "56px",
-                              height: "56px",
-                              display: "flex",
-                              flexDirection: "row-reverse",
-                              left: "0",
-                            }}
-                          >
-                            <img
-                              style={{
-                                position: "absolute",
-                                borderRadius: "10%",
-                                objectFit: "cover",
-                                width: "37px",
-                                height: "37px",
-                                left: "28px",
-                              }}
-                              src={mess?.fndInfo?.cover}
-                              alt=""
-                            />
+              {listMess?.rooms ? (
+                listMess?.rooms?.map((mess, i) => (
+                  <>
+                    {mess?.group ? (
+                      <>
+                        <Link
+                          onClick={() => {
+                            setOpenChatWindowMess({
+                              _id: mess?.roomId,
+                              room_name: mess?.room_name,
+                              group_name: mess?.fndInfo?.group_name,
+                              groupRef: mess?.fndInfo,
+                              icon: mess?.icon,
+                              color: mess?.color,
+                              media: mess?.media,
+                              roomId: mess?.roomId,
+                            });
+                          }}
+                          to={`/messages/${mess?.roomId}`}
+                          className="mmenu_item hover3"
+                          style={
+                            mess?.roomId === openChatWindowMess?._id
+                              ? { background: "#e7f3ff" }
+                              : { cursor: "pointer" }
+                              
+                          }
+                          key={i}
+                        >
+                          <div className="profile_link">
                             <div
-                              className="circle_icon_notification"
                               style={{
-                                position: "absolute",
-                                bottom: "6px",
-                                left: "0px",
+                                width: "56px",
+                                height: "56px",
+                                display: "flex",
+                                flexDirection: "row-reverse",
+                                left: "0",
+                                
                               }}
                             >
                               <img
                                 style={{
+                                  position: "absolute",
+                                  borderRadius: "10%",
+                                  objectFit: "cover",
                                   width: "37px",
                                   height: "37px",
-                                  backgroundColor: "#C8C9D4",
-                                  border: "2.5px solid #fff",
+                                  left: "28px",
                                 }}
-                                src="../../../../images/chat.png"
+                                src={mess?.fndInfo?.cover}
                                 alt=""
                               />
-                            </div>
-                          </div>
-
-                          <div>
-                            <p
-                              style={{
-                                fontSize: "13px",
-                                color: "#65676B",
-                                fontWeight: "400",
-                              }}
-                            >
-                              {mess?.fndInfo?.group_name}
-                            </p>
-                            <div
-                              className="user_name"
-                              style={{
-                                marginLeft: "0px",
-                                fontSize: "15px",
-                              }}
-                            >
-                              {mess?.room_name}
-                            </div>
-                            <p
-                              style={
-                                !mess?.msgInfo?.seen.includes(user.id) &&
-                                mess?.msgInfo?.senderId !== user.id
-                                  ? {
-                                      fontSize: "13px",
-                                      color: "#050505",
-                                      fontWeight: "600",
-                                    }
-                                  : {
-                                      fontSize: "13px",
-                                      color: "#65676B",
-                                      fontWeight: "400",
-                                    }
-                              }
-                            >
-                              {mess?.msgInfo?.senderId === user.id && "You: "}
-                              {!mess?.msgInfo?.image
-                                ? mess?.msgInfo?.message
-                                : mess?.msgInfo?.senderId === user.id
-                                ? "You sent a photo"
-                                : "Someone sent a photo"}
-                            </p>
-                          </div>
-
-                          {!mess?.msgInfo?.seen.includes(user.id) &&
-                            mess?.msgInfo?.senderId !== user.id && (
                               <div
-                                className="notification_icon_active "
+                                className="circle_icon_notification"
                                 style={{
-                                  width: "10px",
-                                  right: "2px",
                                   position: "absolute",
+                                  bottom: "6px",
+                                  left: "0px",
                                 }}
-                              />
-                            )}
-                        </div>
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      <Link
-                        to={`/messages/${mess?.fndInfo?._id}`}
-                        className="mmenu_item hover3"
-                        onClick={() => {
-                          setOpenChatWindowMess({
-                            _id: mess?.fndInfo?._id,
-                            picture: mess?.fndInfo?.picture,
-                            first_name: mess?.fndInfo?.first_name,
-                            last_name: mess?.fndInfo?.last_name,
-                            icon: mess?.icon,
-                            color: mess?.color,
-                            media: mess?.media,
-                            roomId: mess?.roomId,
-                          });
-                        }}
-                        style={
-                          mess?.fndInfo?._id === openChatWindowMess?._id
-                            ? { background: "#e7f3ff" }
-                            : { cursor: "pointer" }
-                        }
-                        key={i}
-                      >
-                        <div className="profile_link">
-                          <div className="circle_icon_notification">
-                            <img
-                              src={mess?.fndInfo?.picture}
-                              alt=""
-                              style={{ width: "56px", height: "56px" }}
-                            />
-                            <div className="right_bottom_notification">
-                              {onlineUsers.some(
-                                (user) => user.userId === mess?.fndInfo?._id
-                              ) && (
-                                <div
-                                  className="state_active_user_mess"
+                              >
+                                <img
                                   style={{
-                                    width: "14px",
-                                    height: "14px",
-                                    left: "-18px",
+                                    width: "37px",
+                                    height: "37px",
+                                    backgroundColor: "#C8C9D4",
+                                    border: "2.5px solid #fff",
+                                  }}
+                                  src="../../../../images/chat.png"
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+
+                            <div>
+                              <p
+                                style={{
+                                  fontSize: "13px",
+                                  color: "#65676B",
+                                  fontWeight: "400",
+                                }}
+                              >
+                                {mess?.fndInfo?.group_name}
+                              </p>
+                              <div
+                                className="user_name"
+                                style={{
+                                  marginLeft: "0px",
+                                  fontSize: "15px",
+                                }}
+                              >
+                                {mess?.room_name}
+                              </div>
+                              <p
+                                style={
+                                  !mess?.msgInfo?.seen.includes(user.id) &&
+                                  mess?.msgInfo?.senderId !== user.id
+                                    ? {
+                                        fontSize: "13px",
+                                        color: "#050505",
+                                        fontWeight: "600",
+                                      }
+                                    : {
+                                        fontSize: "13px",
+                                        color: "#65676B",
+                                        fontWeight: "400",
+                                      }
+                                }
+                              >
+                                {mess?.msgInfo?.senderId === user.id && "You: "}
+                                {!mess?.msgInfo?.image
+                                  ? mess?.msgInfo?.message
+                                  : mess?.msgInfo?.senderId === user.id
+                                  ? "You sent a photo"
+                                  : "Someone sent a photo"}
+                              </p>
+                            </div>
+
+                            {!mess?.msgInfo?.seen.includes(user.id) &&
+                              mess?.msgInfo?.senderId !== user.id && (
+                                <div
+                                  className="notification_icon_active "
+                                  style={{
+                                    width: "10px",
+                                    right: "2px",
+                                    position: "absolute",
                                   }}
                                 />
                               )}
-                            </div>
                           </div>
-
-                          <div>
-                            <div
-                              className="user_name"
-                              style={{
-                                marginLeft: "0px",
-                                fontSize: "15px",
-                              }}
-                            >
-                              {mess?.fndInfo?.first_name}{" "}
-                              {mess?.fndInfo?.last_name}
-                            </div>
-                            <p
-                              style={
-                                mess?.msgInfo?.status === "unseen" &&
-                                mess?.msgInfo?.senderId !== user.id
-                                  ? {
-                                      fontSize: "13px",
-                                      color: "#050505",
-                                      fontWeight: "600",
-                                    }
-                                  : {
-                                      fontSize: "13px",
-                                      color: "#65676B",
-                                      fontWeight: "400",
-                                    }
-                              }
-                            >
-                              {mess?.msgInfo?.senderId === user.id && "You: "}
-                              {!mess?.msgInfo?.image
-                                ? mess?.msgInfo?.message
-                                : mess?.msgInfo?.senderId === user.id
-                                ? "You sent a photo"
-                                : `${mess?.fndInfo?.last_name} sent a photo`}
-                            </p>
-                          </div>
-                          {mess?.msgInfo?.status === "unseen" &&
-                            mess?.msgInfo?.senderId !== user.id && (
-                              <div
-                                className="notification_icon_active "
-                                style={{
-                                  width: "10px",
-                                  right: "7px",
-                                  position: "absolute",
-                                }}
+                        </Link>
+                      </>
+                    ) : (
+                      <>
+                        <Link
+                          to={`/messages/${mess?.fndInfo?._id}`}
+                          className="mmenu_item hover3"
+                          onClick={() => {
+                            setOpenChatWindowMess({
+                              _id: mess?.fndInfo?._id,
+                              picture: mess?.fndInfo?.picture,
+                              first_name: mess?.fndInfo?.first_name,
+                              last_name: mess?.fndInfo?.last_name,
+                              icon: mess?.icon,
+                              color: mess?.color,
+                              media: mess?.media,
+                              roomId: mess?.roomId,
+                            });
+                          }}
+                          style={
+                            mess?.fndInfo?._id === openChatWindowMess?._id
+                              ? { background: "#e7f3ff" }
+                              : { cursor: "pointer" }
+                          }
+                          key={i}
+                        >
+                          <div className="profile_link">
+                            <div className="circle_icon_notification">
+                              <img
+                                src={mess?.fndInfo?.picture}
+                                alt=""
+                                style={{ width: "56px", height: "56px" }}
                               />
-                            )}
-                        </div>
-                      </Link>
-                    </>
-                  )}
-                </>
-              ))
-            ) : (
-              <div className="mmenu_item  imgNotification">
-                <img src="../../../../images/notification.png" alt="" />
-              </div>
-            )}
+                              <div className="right_bottom_notification">
+                                {onlineUsers.some(
+                                  (user) => user.userId === mess?.fndInfo?._id
+                                ) && (
+                                  <div
+                                    className="state_active_user_mess"
+                                    style={{
+                                      width: "14px",
+                                      height: "14px",
+                                      left: "-18px",
+                                    }}
+                                  />
+                                )}
+                              </div>
+                            </div>
+
+                            <div>
+                              <div
+                                className="user_name"
+                                style={{
+                                  marginLeft: "0px",
+                                  fontSize: "15px",
+                                }}
+                              >
+                                {mess?.fndInfo?.first_name}{" "}
+                                {mess?.fndInfo?.last_name}
+                              </div>
+                              <p
+                                style={
+                                  mess?.msgInfo?.status === "unseen" &&
+                                  mess?.msgInfo?.senderId !== user.id
+                                    ? {
+                                        fontSize: "13px",
+                                        color: "#050505",
+                                        fontWeight: "600",
+                                      }
+                                    : {
+                                        fontSize: "13px",
+                                        color: "#65676B",
+                                        fontWeight: "400",
+                                      }
+                                }
+                              >
+                                {mess?.msgInfo?.senderId === user.id && "You: "}
+                                {!mess?.msgInfo?.image
+                                  ? mess?.msgInfo?.message
+                                  : mess?.msgInfo?.senderId === user.id
+                                  ? "You sent a photo"
+                                  : `${mess?.fndInfo?.last_name} sent a photo`}
+                              </p>
+                            </div>
+                            {mess?.msgInfo?.status === "unseen" &&
+                              mess?.msgInfo?.senderId !== user.id && (
+                                <div
+                                  className="notification_icon_active "
+                                  style={{
+                                    width: "10px",
+                                    right: "7px",
+                                    position: "absolute",
+                                  }}
+                                />
+                              )}
+                          </div>
+                        </Link>
+                      </>
+                    )}
+                  </>
+                ))
+              ) : (
+                <div className="mmenu_item  imgNotification">
+                  <img src="../../../../images/notification.png" alt="" />
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -413,7 +435,7 @@ export default function Messages({
                   width: "1400px",
                 }}
               >
-                <CommentsDisabledIcon/>
+                <CommentsDisabledIcon />
                 <p
                   style={{
                     fontSize: "1.25rem",
